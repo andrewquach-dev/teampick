@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Team Generator</title>
+</head>
+
+<body>
+    <header>Randomizer</header>
+    <main>
+        <section class="steps">
+            <h2>Add</h2>
+            <form action="" id="playerForm">
+                <label for="name">Name:
+                </label>
+                <input type="text" id="name" name="name">
+            </form>
+            <button id="add">Add</button>
+        </section>
+        <section class="steps">
+            <h2>Players</h2>
+            <section id="players">
+                <ul id="playersList">
+                </ul>
+            </section>
+            <button id="delete">Delete</button>
+            <button id="clear">Clear</button>
+        </section>
+        <section class="steps">
+            <h2>Teams</h2>
+            <section>
+                <section class="teams">
+                    <h4>Team A</h4>
+                </section>
+                <section class="teams">
+                    <h4>Team B</h4>
+                </section>
+            </section>
+            <button>Randomize</button>
+            <button>Copy</button>
+        </section>
+    </main>
+    <footer>Made with <strike>love</strike> <span>a keyboard</span></footer>
+
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
