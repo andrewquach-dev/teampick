@@ -2,30 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <meta charset="utf-8">
+    <meta name="description" content="Your description goes here">
+    <meta name="keywords" content="one, two, three">
+
     <title>Team Generator</title>
+
+    <!-- external CSS link -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <header>Randomizer</header>
+    <header>
+        <h1>Randomizer</h1>
+    </header>
     <main>
         <section class="steps">
             <h2>Add</h2>
             <form action="" id="playerForm">
                 <label for="name">Name:
                 </label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" minlength="1">
             </form>
             <button id="add">Add</button>
         </section>
         <section class="steps">
             <h2>Players</h2>
             <section id="players">
-                <ul id="playersList">
-                </ul>
+                <select id="playerSelect" size="12">
+                </select>
             </section>
             <button id="delete">Delete</button>
             <button id="clear">Clear</button>
@@ -35,18 +41,19 @@
             <section>
                 <section class="teams">
                     <h4>Team A</h4>
+                    <ul id="teamA"></ul>
                 </section>
                 <section class="teams">
                     <h4>Team B</h4>
+                    <ul id="teamB"></ul>
                 </section>
             </section>
-            <button>Randomize</button>
+            <button id="random">Randomize</button>
             <button>Copy</button>
         </section>
     </main>
     <footer>Made with <strike>love</strike> <span>a keyboard</span></footer>
-
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>
