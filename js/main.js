@@ -1,17 +1,20 @@
+// Variables
 const addBtn = document.querySelector("#add");
 const delBtn = document.querySelector("#delete");
 const clearBtn = document.querySelector("#clear");
 const randBtn = document.querySelector("#random");
-
 const list = document.querySelector("#playerSelect");
 const nameInput = document.getElementById("name");
 const playerForm = document.getElementById("playerForm");
 const teamA = document.querySelector("#teamA");
 const teamB = document.querySelector("#teamB");
+const msg = document.querySelector("msg");
 
 let playersNodeList = document.getElementsByTagName("option");
 let players = Array.from(playersNodeList);
 
+
+// Event listeners
 addBtn.addEventListener("click", () => {
     let playerName = nameInput.value;
     const player = document.createElement("option");

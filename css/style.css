@@ -2,7 +2,7 @@
 
 * {
     box-sizing: border-box;
-    border: 2px solid black;
+   
 }
 
 
@@ -26,7 +26,9 @@
 /* BASE STYLES
 /*******************************************/
 
-body {}
+body {
+    font: 100%/1.5 Helvetica Neue, Segoe UI, sans-serif;
+}
 
 
 /******************************************
@@ -38,31 +40,37 @@ footer {
     height: 100px;
     clear: both;
     text-align: center;
-    padding: 16px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .steps {
-    width: 33.3333%;
-    height: 400px;
+    width: 30%;
     float: left;
-    padding: 2%;
+    background: #FCDCC8;
+    border-radius: .3rem;
 }
 
 .teams {
     width: 50%;
     height: 200px;
     float: left;
-    padding: 2%;
+    padding: .3rem;
 }
 
 #players {
     width: 100%;
     height: 200px;
+    padding: .3rem;
 }
 
 button {
     display: block;
-    margin-top: 2%;
+    margin: .3rem .3rem;
 }
 
 ul,
@@ -76,12 +84,16 @@ li {
     user-select: all;
 }
 
-footer>strike {
+footer p >strike {
     color: red;
 }
 
-footer>span {
+footer>p>span {
     font-weight: bolder;
+}
+footer> p{
+    background-color: #F8924C;
+    height: 100%;
 }
 
 select {
@@ -89,6 +101,28 @@ select {
     height: 100%;
 }
 
+/* //new stuff */
+section h2{
+    padding: .3rem .5rem;
+    margin: 0;
+    background: #F8924C;
+    color: white;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
+
+main>section {
+    margin: 0 1rem;
+}
+section>div{
+    padding: .5rem .5rem;
+}
+h1{
+    background-color: #F46B12;
+    color: white;
+    margin: 0;
+    height: 70%;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
