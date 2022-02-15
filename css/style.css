@@ -2,7 +2,6 @@
 
 * {
     box-sizing: border-box;
-   
 }
 
 
@@ -28,6 +27,7 @@
 
 body {
     font: 100%/1.5 Helvetica Neue, Segoe UI, sans-serif;
+    background-color: #B3CBB9;
 }
 
 
@@ -35,30 +35,59 @@ body {
 /* LAYOUT
 /*******************************************/
 
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body>div {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer,
+main {
+    flex-shrink: 0;
+}
+
 header,
 footer {
-    height: 100px;
-    clear: both;
+    background-color: #F46036;
     text-align: center;
 }
 
-footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+    align-items: start;
+}
+
+section h2 {
+    padding: .3rem .5rem;
+    margin: 0;
+    background: #542E71;
+    color: #FDFFFC;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
 }
 
 .steps {
-    width: 30%;
-    float: left;
-    background: #FCDCC8;
+    background: #6A66A3;
     border-radius: .3rem;
+    flex: 1;
+}
+
+button {
+    background-color: #84A9C0;
+    color: #B3CBB9;
 }
 
 .teams {
-    width: 50%;
-    height: 200px;
-    float: left;
     padding: .3rem;
 }
 
@@ -84,15 +113,15 @@ li {
     user-select: all;
 }
 
-footer p >strike {
-    color: red;
+footer p>strike {
+    color: #CB003D;
 }
 
 footer>p>span {
     font-weight: bolder;
 }
-footer> p{
-    background-color: #F8924C;
+
+footer>p {
     height: 100%;
 }
 
@@ -101,28 +130,19 @@ select {
     height: 100%;
 }
 
-/* //new stuff */
-section h2{
-    padding: .3rem .5rem;
-    margin: 0;
-    background: #F8924C;
-    color: white;
-    border-top-left-radius: .3rem;
-    border-top-right-radius: .3rem;
-}
-
 main>section {
     margin: 0 1rem;
 }
-section>div{
+
+section>div {
     padding: .5rem .5rem;
 }
-h1{
-    background-color: #F46B12;
-    color: white;
-    margin: 0;
-    height: 70%;
+
+h1,
+p {
+    color: #FDFFFC;
 }
+
 
 /******************************************
 /* ADDITIONAL STYLES
