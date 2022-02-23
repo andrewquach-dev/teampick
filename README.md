@@ -1,4 +1,4 @@
 # teampick
 Picks teams randomly.
 
-https://andrewrquach.github.io/team-generator/
+https://arquach.github.io/teampick/
