@@ -1,101 +1,87 @@
-// Variables
-const addBtn = document.querySelector("#add");
-const delBtn = document.querySelector("#delete");
-const clearBtn = document.querySelector("#clear");
-const randBtn = document.querySelector("#random");
-const list = document.querySelector("#playerSelect");
-const nameInput = document.getElementById("name");
-const playerForm = document.getElementById("playerForm");
-const teamA = document.querySelector("#teamA");
-const teamB = document.querySelector("#teamB");
-const msg = document.querySelector("msg");
+const addBtn = document.querySelector("#add-btn");
+const inputtedPlayerName = document.querySelector("#inputted-player-name");
+const playerForm = document.querySelector("#player-form");
+const players = document.querySelectorAll("#players-list>li");
+const playersList = document.querySelector("#players-list");
+const errorMsg = document.querySelector("#error-msg");
+const deleteBtn = document.querySelector("#delete-btn");
+const clearBtn = document.querySelector("#clear-btn");
+const remove = (sel) => document.querySelectorAll(sel).forEach(el => el.remove());
 
-let playersNodeList = document.getElementsByTagName("option");
-let players = Array.from(playersNodeList);
+addBtn.addEventListener("click", addPlayer);
+deleteBtn.addEventListener("click", deletePlayers);
+clearBtn.addEventListener("click", clearPlayers);
 
+function addPlayer() {
+    let inputtedPlayerNameValue = inputtedPlayerName.value;
 
-// Event listeners
-addBtn.addEventListener("click", () => {
-    let playerName = nameInput.value;
-    const player = document.createElement("option");
+    if (doesPlayerExist(inputtedPlayerNameValue)) {
+        createErrorMsg("Player added already!", 1500);
+    } else if (inputtedPlayerNameValue.value === 0 || inputtedPlayerNameValue === '') {
+        createErrorMsg("The field is empty!", 1500);
+    } else {
+        let newPlayer = document.createElement("li");
+        newPlayer.classList.add("player", "ripple");
+        newPlayer.addEventListener('click', function() {
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+            } else {
+                this.classList.add('active');
+            }
+        });
+        newPlayer.textContent = inputtedPlayerNameValue;
+        playersList.appendChild(newPlayer);
+        playerForm.reset();
+        isPlayersListEmpty();
+    }
+}
 
-    const match = players.find((name) => {
-        if (name.innerText.includes(playerName)) {
-            return true;
+function doesPlayerExist(newPlayer) {
+    let doesExist = false,
+        playersArray = [...document.getElementById("players-list").getElementsByTagName("li")];
+
+    playersArray.forEach(player => {
+        if (player.innerText === newPlayer) {
+            doesExist = true;
         }
     });
 
-    if (match !== undefined || name.innerText === "") {
-        console.log("Player added already or the field is empty!");
+    return doesExist;
+}
+
+function createErrorMsg(msg, duration) {
+    errorMsg.innerHTML = msg;
+    errorMsg.style.display = "block";
+    setTimeout(function() {
+        errorMsg.style.display = "none";
+    }, duration);
+}
+
+function deletePlayers() {
+    remove(".active");
+    isPlayersListEmpty();
+}
+
+function clearPlayers() {
+    remove("li.player");
+    isPlayersListEmpty();
+}
+
+function isPlayersListEmpty() {
+    if (document.querySelectorAll("#players-list>li").length === 0) {
+        playersList.style.display = "none";
     } else {
-        player.classList.add("player");
-        player.textContent = playerName;
-
-        list.appendChild(player);
-        playerForm.reset();
+        playersList.style.display = "block";
     }
-    updatePlayers();
-});
-delBtn.addEventListener("click", () => {
-    let selection = document.getElementById("playerSelect");
-    selection.remove(selection.selectedIndex);
-    updatePlayers();
-});
-clearBtn.addEventListener("click", () => {
-    while (list.options.length) list.remove(0);
-    updatePlayers();
-});
-randBtn.addEventListener("click", () => {
-    let formattedPlayers = players.map(p => p.innerText.replace(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, 'f'));
-    let randomPlayers = shuffle(formattedPlayers);
-    let halfLength = Math.ceil(randomPlayers.length / 2);
-    let teamB = randomPlayers.splice(0, halfLength);
-
-    document.getElementById("teamA").innerHTML = "";
-    document.getElementById("teamB").innerHTML = "";
-    assignTeamA(randomPlayers);
-    assignTeamB(teamB);
-
-    console.log(formattedPlayers);
-    console.log(shuffle(formattedPlayers));
-
-});
-
-function shuffle(array) {
-    let currentIndex = array.length,
-        temporaryValue, randomIndex;
-    while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-    return array;
 }
 
-function assignTeamA(array) {
-    array.forEach(p => {
-        let player = document.createElement("li");
-        player.classList.add("player");
-        player.textContent = p;
-
-        teamA.appendChild(player);
+//for testing
+players.forEach(player => {
+    player.addEventListener('click', function() {
+        if (this.classList.contains('active')) {
+            this.classList.remove('active');
+        } else {
+            this.classList.add('active');
+        }
     });
-}
-
-function assignTeamB(array) {
-    array.forEach(p => {
-        let player = document.createElement("li");
-        player.classList.add("player");
-        player.textContent = p;
-
-        teamB.appendChild(player);
-    });
-}
-
-function updatePlayers() {
-    playersNodeList = document.getElementsByTagName("option");
-    players = Array.from(playersNodeList);
-}
+});

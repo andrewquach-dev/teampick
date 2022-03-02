@@ -5,75 +5,81 @@
     <meta charset="utf-8">
     <meta name="description" content="Your description goes here">
     <meta name="keywords" content="one, two, three">
-
-    <title>Team Generator</title>
+    <script src="https://kit.fontawesome.com/4d29d0b831.js" crossorigin="anonymous"></script>
+    <title>Blank Template</title>
 
     <!-- external CSS link -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Kameron&family=Laila&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div>
-        <header>
-            <h1>teampick</h1>
-        </header>
-        <main>
-            <section class="steps">
+    <header class="header">
+        <div class="container">
+            <div class="logo">teampick</div>
+        </div>
+    </header>
+
+    <main class="boxes">
+        <div class="container">
+            <div class="box">
                 <h2>Add</h2>
                 <hr>
-                <div class="bottomHalf">
+                <a href=""></a>
+                <form action="" id="player-form">
+                    <input type="text" placeholder="Name" id="inputted-player-name">
+                    <div>
+                        <button type="button" href="" class="ripple" id="add-btn"><i
+                                class="fa-solid fa-user-plus"></i>Add</button>
+                        <span id="error-msg">asdas</span>
+                    </div>
+                </form>
 
-                    <form action="" id="playerForm">
-                        <label for="name">Name:
-                        </label>
-                        <input type="text" id="name" name="name" minlength="1">
-                    </form>
-                    <span id="msg"></span>
-                    <button id="add" class="bi bi-person-plus"> Add</button>
-                </div>
-            </section>
-
-            <section class="steps">
+            </div>
+            <div class="box">
                 <h2>Players</h2>
                 <hr>
-                <div>
-                    <section id="players">
-                        <select id="playerSelect" size="12">
-                        </select>
-                    </section>
-                    <button id="delete" class="bi bi-person-dash"> Delete</button>
-                    <button id="clear" class="bi bi-trash-fill"> Clear</button>
+                <ul id="players-list">
+                    <li class="player ripple">Joe</li>
+                    <li class="player ripple">Jo</li>
+                    <li class="player ripple">Jojo</li>
+                </ul>
+                <div class="btns">
+                    <button id="delete-btn" type="button" href="#" class="ripple"><i class="fa-solid fa-user-xmark"></i>Delete</button>
+                    <button id="clear-btn" type="button" href="#" class="ripple"><i class="fa-solid fa-trash-can"></i>Clear</button>
                 </div>
-            </section>
 
-            <section class="steps">
+            </div>
+            <div class="box">
                 <h2>Teams</h2>
                 <hr>
-                <div>
-                    <section class="teams">
-                        <h4>Team A:</h4>
-                        <ul id="teamA"></ul>
-                    </section>
-                    <section class="teams">
-                        <h4>Team B:</h4>
-                        <ul id="teamB"></ul>
-                    </section>
-                    <button id="random" class="bi bi-shuffle"> Randomize</button>
-                    <button id="share" class="bi bi-share-fill"> Share</button>
+                <div class="teams">
+                    <div class="team">
+                        <h3>Team 1</h3>
+                        <ul id="team1">
+                            <li>Andrew Quach</li>
+                        </ul>
+                    </div>
+                    <div class="team">
+                        <h3>Team 2</h3>
+                        <ul id="team2">
+                            <li>Andrew Quach</li>
+                        </ul>
+                    </div>
                 </div>
 
-            </section>
-        </main>
+                <button type="button" href="#" class="ripple" id="rando-btn"><i
+                        class="fa-solid fa-dice-six"></i>Randomize</button>
+            </div>
+        </div>
+    </main>
 
-        <footer>
-            <p>Made with <strike>love</strike> <span>a keyboard</span></p>
-        </footer>
-    </div>
+    <footer class="footer">
+        <div class="container">
+            <div>Made by <a href="#">Andrew Quach</a></div>
+        </div>
+    </footer>
+
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 

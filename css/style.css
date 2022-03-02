@@ -2,6 +2,8 @@
 
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -25,9 +27,20 @@
 /* BASE STYLES
 /*******************************************/
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 body {
-    font: 100%/1.5 'Laila', sans-serif;
-    background-color: #D7D2CE;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+html {
+    height: 100%;
 }
 
 
@@ -35,143 +48,211 @@ body {
 /* LAYOUT
 /*******************************************/
 
-html,
-body {
-    width: 100%;
+h2,
+hr {
+    margin-bottom: 15px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.header {
+    background: black;
+    color: #fff;
+    height: 60px;
+}
+
+.logo {
+    font-size: x-large;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
     height: 100%;
 }
 
-body>div {
-    min-height: 100%;
+.boxes {
+    flex: 1 0 auto;
+    min-height: auto;
+}
+
+.boxes h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.boxes .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.box {
+    flex: 1;
+    background: black;
+    color: #fff;
+    border-radius: .5em;
+    margin: 1em;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+    padding: 2em 1.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+form div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    ;
+}
+
+#error-msg {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    display: none;
+    border-radius: 1em;
+    padding: .25em 1em;
+}
+
+input {
+    width: 100%;
+    border: none;
+    padding: .25em .5em;
+    border-radius: .5em;
+    margin-bottom: 1em;
+}
+
+.footer {
+    display: flex;
+    background: black;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+}
+
+hr {
+    border: none;
+    background-color: #ccc;
+    color: #ccc;
+    height: 1px;
+    align-self: normal;
+    border-radius: 5px;
+}
+
+.btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+button {
+    border: none;
+    border-radius: .25em;
+    padding: .5em .75em;
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: #fff;
+    color: black;
+    box-shadow: 0 0 4px #999;
+    outline: none;
+}
+
+.ripple {
+    background-position: center;
+    transition: background 0.8s;
+}
+
+.ripple:hover {
+    background: darkgrey radial-gradient(circle, transparent 1%, darkgrey 1%) center/15000%;
+}
+
+.ripple:active {
+    background-color: lightgrey;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+#randoBtn {
+    margin-top: 1em;
+}
+
+i {
+    margin-right: 10px;
+}
+
+#players-list {
+    border: 1px solid white;
+    width: 100%;
+    list-style-type: none;
+}
+
+li.player:not(:last-of-type) {
+    border-bottom: 1px solid white;
+}
+
+li.player {
+    padding: .75em;
+    cursor: pointer;
+}
+
+li.player:hover {
+    background-color: lightgrey;
+}
+
+.active {
+    background-color: darkgrey;
+}
+
+div.teams {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+}
+
+div.team {
     display: flex;
     flex-direction: column;
 }
 
-header,
-footer,
-main {
-    flex-shrink: 0;
-}
-
-header,
-footer {
-    background-color: #CC5311;
-    text-align: center;
-}
-
-main {
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-around;
-    margin: 1rem 0;
-    align-items: start;
-}
-
-section h2 {
-    padding: 1rem;
-    margin: 0;
-    /*     
-    border-bottom: 1px solid #D7D2CE; */
-    border-top-left-radius: .3rem;
-    border-top-right-radius: .3rem;
-}
-
-.steps {
-    background: #F0ECE8;
-    border-radius: .3rem;
-    flex: 1;
-}
-
-button:hover {
-    color: #C5B6B2;
-}
-
-#players,
-#name {
-    width: 100%;
-}
-
-button {
-    color: #9F9D9C;
-    background: transparent no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-    margin: 1rem 0;
-}
-
-ul,
-li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-li {
-    user-select: all;
-}
-
-footer p>strike {
-    color: #CB003D;
-}
-
-footer>p>span {
-    font-weight: bolder;
-}
-
-footer>p {
-    height: 100%;
-}
-
-select {
-    width: 100%;
-    height: 100%;
-}
-
-main>section {
-    margin: 0 1rem;
-}
-
-section>div {
-    padding: 1rem;
-}
-
-h1 {
-    color: #FDFFFC;
-    font-family: 'Dosis', sans-serif;
-    font-size: 3rem;
-}
-
-p {
-    color: #EEC7B2;
-}
-
-label,
-h4 {
-    color: #9A9FA0;
-}
-
-h4 {
-    text-decoration: underline;
-    text-decoration-color: #D7D2CE;
-}
-
-hr {
-    margin: 0 auto;
-    padding: 0;
-    border: none;
-    border-top: 1px solid #D7D2CE;
-    width: 95%;
-}
-
-section.teams ul>* {
-    color: #847777;
-}
-
-h2 {
-    color: #847777;
-    font-family: 'Kameron', serif;
+@media(max-width: 800px) {
+    .header .container {
+        justify-content: center;
+    }
+    .boxes .container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: baseline;
+        text-align: center;
+    }
+    div.box {
+        align-items: center;
+    }
 }
 
 
