@@ -6,21 +6,26 @@ const playersList = document.querySelector("#players-list");
 const errorMsg = document.querySelector("#error-msg");
 const deleteBtn = document.querySelector("#delete-btn");
 const clearBtn = document.querySelector("#clear-btn");
+const randoBtn = document.querySelector("#rando-btn");
 const remove = (sel) => document.querySelectorAll(sel).forEach(el => el.remove());
+const teamOneList = document.querySelector("#team-one");
+const teamTwoList = document.querySelector("#team-two");
 
 addBtn.addEventListener("click", addPlayer);
 deleteBtn.addEventListener("click", deletePlayers);
 clearBtn.addEventListener("click", clearPlayers);
+randoBtn.addEventListener("click", randomizeAndAssign);
 
 function addPlayer() {
-    let inputtedPlayerNameValue = inputtedPlayerName.value;
+    let inputtedPlayerNameValue = inputtedPlayerName.value,
+        newPlayer;
 
     if (doesPlayerExist(inputtedPlayerNameValue)) {
         createErrorMsg("Player added already!", 1500);
     } else if (inputtedPlayerNameValue.value === 0 || inputtedPlayerNameValue === '') {
         createErrorMsg("The field is empty!", 1500);
     } else {
-        let newPlayer = document.createElement("li");
+        newPlayer = document.createElement("li");
         newPlayer.classList.add("player", "ripple");
         newPlayer.addEventListener('click', function() {
             if (this.classList.contains('active')) {
@@ -32,7 +37,7 @@ function addPlayer() {
         newPlayer.textContent = inputtedPlayerNameValue;
         playersList.appendChild(newPlayer);
         playerForm.reset();
-        isPlayersListEmpty();
+        isListEmpty();
     }
 }
 
@@ -59,20 +64,61 @@ function createErrorMsg(msg, duration) {
 
 function deletePlayers() {
     remove(".active");
-    isPlayersListEmpty();
+    isListEmpty();
 }
 
 function clearPlayers() {
     remove("li.player");
-    isPlayersListEmpty();
+    isListEmpty();
 }
 
-function isPlayersListEmpty() {
+function isListEmpty() {
     if (document.querySelectorAll("#players-list>li").length === 0) {
         playersList.style.display = "none";
     } else {
         playersList.style.display = "block";
     }
+}
+
+function randomizeAndAssign() {
+    let randomizedPlayersList = randomize(document.querySelectorAll("#players-list>li"));
+    assignTeams(randomizedPlayersList);
+}
+
+function randomize(players) {
+    let playersArray = [...players].map(node => node.innerText);
+    let currentIndex = playersArray.length,
+        temporaryValue, randomIndex;
+
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = playersArray[currentIndex];
+        playersArray[currentIndex] = playersArray[randomIndex];
+        playersArray[randomIndex] = temporaryValue;
+    }
+
+    return playersArray;
+}
+
+function assignTeams(players) {
+    let halfLength = Math.ceil(players.length / 2);
+    let teamOne = players.splice(0, halfLength);
+    let teamTwo = players;
+
+    teamOne.forEach(playerName => {
+        let ele = document.createElement("li");
+        ele.classList.add("team-player");
+        ele.textContent = playerName;
+        teamOneList.appendChild(ele);
+    });
+    teamTwo.forEach(playerName => {
+        let ele = document.createElement("li");
+        ele.classList.add("team-player");
+        ele.textContent = playerName;
+        teamTwoList.appendChild(ele);
+    });
 }
 
 //for testing
