@@ -13,76 +13,80 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">bal</div>
-        </div>
-    </header>
+<body class="page">
+    <div class="page__inner">
+        <header class="header --dark">
+            <h1 class="header__logo">teampick</h1>
+        </header>
 
-    <main class="boxes">
-        <div class="container">
-            <div class="box">
-                <h2>Add</h2>
-                <hr>
-                <a href=""></a>
-                <form action="" id="player-form">
-                    <input type="text" placeholder="Name" id="inputted-player-name">
-                    <div>
-                        <button type="button" href="" class="ripple" id="add-btn"><i
-                                class="fa-solid fa-user-plus"></i>Add</button>
-                        <span id="error-msg">asdas</span>
-                    </div>
+        <main class="main">
+            <div class="main__container --dark">
+                <h2 class="main__h2">Add</h2>
+                <hr class="main__hr">
+                <form action="" class="main__form">
+                    <label for="name" class="main__label">Name:</label>
+                    <input type="text" class="main__input" id="inputted-player-name">
+                    <button type="button" href="" class="btn main__add-btn --ripple" id="add-btn"><i
+                            class="main__i fa-solid fa-user-plus"></i>Add</button>
+                    <span class="error-msg">asdas</span>
                 </form>
-
             </div>
-            <div class="box">
-                <h2>Players</h2>
-                <hr>
-                <ul id="players-list">
-                    <li class="player ripple">Joe</li>
-                    <li class="player ripple">Jo</li>
-                    <li class="player ripple">Jojo</li>
-                    <li class="player ripple">Joey</li>
-                    <li class="player ripple">Josh</li>
-                    <li class="player ripple">John</li>
+
+            <div class="main__container --dark">
+                <h2 class="main__h2">Players</h2>
+                <hr class="main__hr">
+                <ul class="main__players-list" id="players-list">
+                    <li class="player --ripple">Joe</li>
+                    <li class="player --ripple">Jo</li>
+                    <li class="player --ripple">JoJo</li>
+                    <li class="player --ripple">Joey</li>
+                    <li class="player --ripple">Joao</li>
+                    <li class="player --ripple">Jones</li>
+                    <li class="player --ripple">Joel</li>
+                    <li class="player --ripple">Jonah</li>
+                    <li class="player --ripple">Joy</li>
+                    <li class="player --ripple">Jolie</li>
                 </ul>
-                <div class="btns">
-                    <button id="delete-btn" type="button" href="#" class="ripple"><i
-                            class="fa-solid fa-user-xmark"></i>Delete</button>
-                    <button id="clear-btn" type="button" href="#" class="ripple"><i
-                            class="fa-solid fa-trash-can"></i>Clear</button>
+                <div class="main__btns">
+                    <button id="delete-btn" type="button" href="#" class="btn --ripple"><i
+                            class="main__i fa-solid fa-user-xmark"></i>Delete</button>
+                    <button id="clear-btn" type="button" href="#" class="btn --ripple"><i
+                            class="main__i fa-solid fa-trash-can"></i>Clear</button>
                 </div>
 
             </div>
-            <div class="box">
-                <h2>Teams</h2>
-                <hr>
-                <div class="teams">
-                    <div class="team">
-                        <h3>Team 1</h3>
-                        <ul id="team-one">
+
+            <div class="main__container --dark">
+                <h2 class="main__h2">Teams</h2>
+                <hr class="main__hr">
+                <div class="main__teams">
+                    <div class="main__team-div">
+                        <h3 contenteditable="true">Team 1</h3>
+                        <ul class="main__team" id="team-one">
                         </ul>
                     </div>
-                    <div class="team">
-                        <h3>Team 2</h3>
-                        <ul id="team-two">
+                    <div class="main__team-div">
+                        <h3 contenteditable="true">Team 2</h3>
+                        <ul class="main__team" id="team-two">
                         </ul>
+
                     </div>
                 </div>
+                <div class="main__btns">
+                    <button type="button" href="#" class="main__randomize btn --ripple" id="rando-btn"><i
+                            class="main__i fa-solid fa-dice-six"></i>Randomize</button>
+                    <button type="button" href="#" class="main__share btn --ripple" id="share-btn"><i
+                            class="main__i fa-solid fa-share-nodes"></i>Share</button>
+                </div>
 
-                <button type="button" href="#" class="ripple" id="rando-btn"><i
-                        class="fa-solid fa-dice-six"></i>Randomize</button>
+                <span class="error-msg">asdas</span>
             </div>
-        </div>
-    </main>
+        </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div>Made by <a href="#">Andrew Quach</a></div>
-        </div>
-    </footer>
-
+        <footer class="footer --dark">
+            <p>Made by <a href="#">Andrew Quach</a></p>
+        </footer>
+    </div>
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 

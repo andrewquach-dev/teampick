@@ -23,9 +23,14 @@
 }
 
 
-/******************************************
-/* BASE STYLES
-/*******************************************/
+/* 
+██████╗  █████╗ ███████╗███████╗    ███████╗████████╗██╗   ██╗██╗     ███████╗███████╗
+██╔══██╗██╔══██╗██╔════╝██╔════╝    ██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔════╝██╔════╝
+██████╔╝███████║███████╗█████╗      ███████╗   ██║    ╚████╔╝ ██║     █████╗  ███████╗
+██╔══██╗██╔══██║╚════██║██╔══╝      ╚════██║   ██║     ╚██╔╝  ██║     ██╔══╝  ╚════██║
+██████╔╝██║  ██║███████║███████╗    ███████║   ██║      ██║   ███████╗███████╗███████║
+╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝    ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝╚══════╝                                                                                   
+ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 body {
@@ -44,94 +49,52 @@ html {
 }
 
 
-/******************************************
-/* LAYOUT
-/*******************************************/
+/* 
+██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
+██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝
+██║     ███████║ ╚████╔╝ ██║   ██║██║   ██║   ██║   
+██║     ██╔══██║  ╚██╔╝  ██║   ██║██║   ██║   ██║   
+███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║   
+╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝                                                       
+*/
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    /* might change this */
+.page__inner {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .header {
-    background: black;
-    color: #fff;
     height: 80px;
-}
-
-.logo {
-    font-size: 3em;
-    font-weight: bold;
-}
-
-.header .container {
     display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.boxes {
-    flex: 1 0 auto;
-}
-
-.boxes h2 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.boxes .container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
-.box {
-    flex: 1;
-    background: black;
-    color: #fff;
-    border-radius: .5em;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    margin: 1em;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-}
-
-form div {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
     align-items: center;
 }
 
-#error-msg {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
-    display: none;
-    border-radius: 1em;
-    padding: .25em 1em;
+.header__logo {
+    color: white;
+    font-size: 2.25em;
+    margin: 0;
+    letter-spacing: .05em;
 }
 
-input {
-    width: 100%;
-    border: none;
-    padding: .25em .5em;
-    border-radius: .5em;
-    margin-bottom: 1.25em;
+.main {
+    flex: 1;
+    display: flex;
+    margin: 2em 0;
 }
 
-hr {
+.main__container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+}
+
+.main__input {}
+
+.main__hr {
     border: none;
     background-color: #ccc;
     color: #ccc;
@@ -141,16 +104,66 @@ hr {
     margin: 1em 0;
 }
 
-.btns {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.main__btns {
     margin-top: 1em;
 }
 
-button {
+.main__players-list {
+    border: 1px solid white;
+    list-style-type: none;
+}
+
+.main__teams {
+    display: flex;
+    gap: 1em;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.main__team-div {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.main__team {
+    flex: 1;
+    border: 1px solid white;
+    list-style-type: none;
+}
+
+.main__i {
+    margin-right: 10px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}
+
+.main__add-btn {
+    width: 5.5em;
+}
+
+.--dark {
+    background-color: black;
+    color: white;
+}
+
+.error-msg {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    display: none;
+    border-radius: 1em;
+    padding: .25em 1em;
+}
+
+.btn {
     border: none;
-    border-radius: .25em;
     padding: .5em .75em;
     font-size: 1em;
     text-transform: uppercase;
@@ -161,39 +174,19 @@ button {
     outline: none;
 }
 
-.ripple {
+.--ripple {
     background-position: center;
     transition: background 0.8s;
 }
 
-.ripple:hover {
+.--ripple:hover {
     background: darkgrey radial-gradient(circle, transparent 1%, darkgrey 1%) center/15000%;
 }
 
-.ripple:active {
+.--ripple:active {
     background-color: lightgrey;
     background-size: 100%;
     transition: background 0s;
-}
-
-#randoBtn {
-    margin-top: 1em;
-}
-
-i {
-    margin-right: 10px;
-}
-
-#players-list,
-#team-one,
-#team-two {
-    border: 1px solid white;
-    width: 100%;
-    list-style-type: none;
-}
-
-li.player:not(:last-of-type) {
-    border-bottom: 1px solid white;
 }
 
 .player {
@@ -201,16 +194,11 @@ li.player:not(:last-of-type) {
     cursor: pointer;
 }
 
-li.team-player:not(:last-of-type) {
+.player:not(:last-of-type) {
     border-bottom: 1px solid white;
 }
 
-.team-player {
-    padding: .75em;
-    cursor: pointer;
-}
-
-li.player:hover {
+.player:hover {
     background-color: lightgrey;
 }
 
@@ -218,59 +206,55 @@ li.player:hover {
     background-color: darkgrey;
 }
 
-div.teams {
-    display: flex;
-    gap: 1em;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-}
 
-div.team {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
+/* Mobile */
 
-#rando-btn {
-    margin-top: 1em;
-}
-
-.footer {
-    display: flex;
-    background: black;
-    height: 60px;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: white;
-}
-
-footer div div a {
-    color: white;
-    font-size: 1.25em;
-    cursor: pointer;
-}
-
-@media(max-width: 800px) {
-    .header .container {
-        justify-content: center;
-    }
-    .boxes .container {
-        display: flex;
+@media only screen and (min-width: 0em) {
+    .main {
         flex-direction: column;
-        align-items: stretch;
-        justify-content: baseline;
+        gap: 1.5em;
+    }
+    .main__container {
+        margin: 0 2em;
+    }
+    .main__h2 {
         text-align: center;
     }
-    div.box {
+    .main__form,
+    .main__btns {
+        display: flex;
+        justify-content: center;
         align-items: center;
-        padding: 3em;
-        margin: 1.5em 3em;
+        gap: 1em;
     }
 }
 
 
-/******************************************
-/* ADDITIONAL STYLES
-/*******************************************/
+/* Tablet */
+
+@media only screen and (min-width: 48em) {}
+
+
+/* Small Desktop */
+
+@media only screen and (min-width: 64em) {
+    .main {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0;
+    }
+    .main__container {
+        margin: 0 1em;
+    }
+}
+
+
+/* 
+ █████╗ ██████╗ ██████╗ ██╗████████╗██╗ ██████╗ ███╗   ██╗ █████╗ ██╗         ███████╗████████╗██╗   ██╗██╗     ███████╗███████╗
+██╔══██╗██╔══██╗██╔══██╗██║╚══██╔══╝██║██╔═══██╗████╗  ██║██╔══██╗██║         ██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔════╝██╔════╝
+███████║██║  ██║██║  ██║██║   ██║   ██║██║   ██║██╔██╗ ██║███████║██║         ███████╗   ██║    ╚████╔╝ ██║     █████╗  ███████╗
+██╔══██║██║  ██║██║  ██║██║   ██║   ██║██║   ██║██║╚██╗██║██╔══██║██║         ╚════██║   ██║     ╚██╔╝  ██║     ██╔══╝  ╚════██║
+██║  ██║██████╔╝██████╔╝██║   ██║   ██║╚██████╔╝██║ ╚████║██║  ██║███████╗    ███████║   ██║      ██║   ███████╗███████╗███████║
+╚═╝  ╚═╝╚═════╝ ╚═════╝ ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝    ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝╚══════╝
+*/
