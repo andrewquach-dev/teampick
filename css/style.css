@@ -65,34 +65,27 @@ html {
 }
 
 .header {
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-content: center;
 }
 
 .header__logo {
     color: white;
-    font-size: 2.25em;
-    margin: 0;
-    letter-spacing: .05em;
-}
-
-.main {
-    flex: 1;
-    display: flex;
-    margin: 2em 0;
 }
 
 .main__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.main__step {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 1em;
+    padding: 1.5em;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
 }
-
-.main__input {}
 
 .main__hr {
     border: none;
@@ -109,7 +102,6 @@ html {
 }
 
 .main__players-list {
-    border: 1px solid white;
     list-style-type: none;
 }
 
@@ -129,7 +121,6 @@ html {
 
 .main__team {
     flex: 1;
-    border: 1px solid white;
     list-style-type: none;
 }
 
@@ -138,10 +129,9 @@ html {
 }
 
 .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70px;
+    margin-top: auto;
+    display: grid;
+    place-content: center;
 }
 
 .main__add-btn {
@@ -164,9 +154,8 @@ html {
 
 .btn {
     border: none;
-    padding: .5em .75em;
-    font-size: 1em;
-    text-transform: uppercase;
+    padding: .75em .5em;
+    font-size: 1rem;
     cursor: pointer;
     background-color: #fff;
     color: black;
@@ -222,22 +211,84 @@ html {
 /* Mobile */
 
 @media only screen and (min-width: 0em) {
-    .main {
-        flex-direction: column;
-        gap: 1.5em;
+    .header__container {
+        padding: 0 10px;
+        margin: auto;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+    }
+    .header {
+        height: 5em;
+    }
+    .header__logo {
+        font-size: 4rem;
+        margin: 0;
+        letter-spacing: .05em;
     }
     .main__container {
-        margin: 0 2em;
+        padding: 10px;
+        margin: auto;
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
     }
-    .main__h2 {
-        text-align: center;
-    }
-    .main__form,
-    .main__btns {
+    .main__form {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 1em;
+    }
+    .main__label {
+        align-self: flex-start;
+        font-size: 3rem;
+    }
+    .main__input {
+        width: 90%;
+        height: 4em;
+    }
+    .main__add-btn {
+        align-self: flex-end;
+    }
+    .btn {
+        font-size: 2.75rem;
+    }
+    .main__h2 {
+        font-size: 5rem;
+        text-align: center;
+    }
+    .main__hr {
+        height: .45em;
+        align-self: normal;
+    }
+    .main__players-list {
+        padding: 0 2em;
+    }
+    .player {
+        padding: 1em;
+        font-size: 3rem;
+        text-align: center;
+        border: .125em solid white;
+    }
+    .main__btns {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1em;
+    }
+    .main__team {
+        padding: 0 2em;
+    }
+    .main__h4 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    .footer {
+        min-height: 100px;
+    }
+    .footer__p {
+        font-size: 2rem;
     }
 }
 
@@ -250,21 +301,184 @@ html {
 /* Small Desktop */
 
 @media only screen and (min-width: 64em) {
-    .main {
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 0;
+    .header__container {
+        padding: 0 10px;
+        margin: auto;
+        position: relative;
+        width: 100%;
+        max-width: 450px;
+    }
+    .header__logo {
+        color: white;
+        font-size: 2rem;
+        margin: 0;
+        letter-spacing: .05em;
+    }
+    .header {
+        height: 110px;
     }
     .main__container {
-        margin: 0 1em;
+        padding: 10px;
+        margin: auto;
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .main__step:first-child {
+        min-width: 25em;
+    }
+    .main__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+    .main__label {
+        align-self: flex-start;
+        font-size: 1.5rem;
+    }
+    .main__input {
+        width: 90%;
+        height: 2em;
+    }
+    .main__add-btn {
+        align-self: flex-end;
+    }
+    .btn {
+        font-size: 1.25rem;
+    }
+    .main__h2 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    .main__hr {
+        height: .25em;
+        align-self: normal;
+    }
+    .main__players-list {
+        padding: 0 2em;
+    }
+    .player {
+        padding: 1em;
+        font-size: 1.5rem;
+        text-align: center;
+        border: .125em solid white;
+    }
+    .main__btns {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1em;
+    }
+    .main__team {
+        padding: 0 2em;
+    }
+    .main__h4 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .footer {
+        min-height: 80px;
+    }
+    .footer__p {
+        font-size: 1rem;
     }
 }
 
 
 /* Large Desktop */
 
-@media only screen and (min-width: 1300px) {}
+@media only screen and (min-width: 1300px) {
+    .header__container {
+        padding: 0 10px;
+        margin: auto;
+        position: relative;
+        width: 100%;
+        max-width: 450px;
+    }
+    .header__logo {
+        color: white;
+        font-size: 2rem;
+        margin: 0;
+        letter-spacing: .05em;
+    }
+    .header {
+        height: 110px;
+    }
+    .main__container {
+        padding: 10px;
+        margin: auto;
+        position: relative;
+        width: 100%;
+        max-width: 1800px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .main__step:first-child {
+        min-width: 20em;
+    }
+    .main__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+    .main__label {
+        align-self: flex-start;
+        font-size: 1.5rem;
+    }
+    .main__input {
+        width: 90%;
+        height: 2em;
+    }
+    .main__add-btn {
+        align-self: flex-end;
+    }
+    .btn {
+        font-size: 1.25rem;
+    }
+    .main__h2 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    .main__hr {
+        height: .25em;
+        align-self: normal;
+    }
+    .main__players-list {
+        padding: 0 2em;
+    }
+    .player {
+        padding: 1em;
+        font-size: 1.5rem;
+        text-align: center;
+        border: .125em solid white;
+    }
+    .main__btns {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1em;
+    }
+    .main__team {
+        padding: 0 2em;
+    }
+    .main__h4 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .footer {
+        min-height: 80px;
+    }
+    .footer__p {
+        font-size: 1rem;
+    }
+}
 
 
 /* 
