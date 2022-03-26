@@ -36,16 +36,6 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
-    line-height: 1.5;
-    color: #333;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-html {
-    height: 100%;
 }
 
 
@@ -65,22 +55,47 @@ html {
 }
 
 .header {
+    height: 2.5em;
+}
+
+.header__inner {
+    height: 100%;
     display: grid;
-    place-content: center;
+    place-items: center;
 }
 
 .header__logo {
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
     color: white;
 }
 
-.main__container {
+.container {
+    padding: 0 10px;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    max-width: 95%;
+}
+
+.main {
+    margin: 0 auto;
+}
+
+.main__inner {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    padding: .5em 0;
+    gap: .5em;
 }
 
 .main__step {
-    flex: 1;
     display: flex;
     flex-direction: column;
     padding: 1.5em;
@@ -94,11 +109,35 @@ html {
     height: .13em;
     align-self: normal;
     border-radius: 5px;
-    margin: 1em 0;
+    margin: .25em 0 .75em 0;
+}
+
+.main__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.main__input {
+    width: 100%;
+}
+
+.main__label {
+    font-size: .95rem;
 }
 
 .main__btns {
+    display: flex;
+    justify-content: space-between;
     margin-top: 1em;
+}
+
+#clear-btn {
+    width: 40%;
+}
+
+#delete-btn {
+    width: 40%;
 }
 
 .main__players-list {
@@ -107,7 +146,7 @@ html {
 
 .main__teams {
     display: flex;
-    gap: 1em;
+    gap: .5em;
     align-items: flex-start;
     justify-content: center;
     width: 100%;
@@ -124,18 +163,37 @@ html {
     list-style-type: none;
 }
 
+.main__h4 {
+    text-align: center;
+    margin-bottom: .5em;
+}
+
 .main__i {
     margin-right: 10px;
 }
 
+.main__share {
+    width: 40%;
+}
+
+.main__randomize {
+    width: 50%;
+}
+
 .footer {
+    height: 2em;
     margin-top: auto;
     display: grid;
     place-content: center;
 }
 
+.footer__p {
+    font-size: 1rem;
+}
+
 .main__add-btn {
-    width: 5.5em;
+    align-self: flex-end;
+    width: 50%;
 }
 
 .--dark {
@@ -154,7 +212,7 @@ html {
 
 .btn {
     border: none;
-    padding: .75em .5em;
+    padding: .75em 0;
     font-size: 1rem;
     cursor: pointer;
     background-color: #fff;
@@ -183,6 +241,7 @@ html {
 }
 
 .player {
+    text-align: center;
     padding: .75em;
     cursor: pointer;
     border: 1px solid white;
@@ -210,87 +269,7 @@ html {
 
 /* Mobile */
 
-@media only screen and (min-width: 0em) {
-    .header__container {
-        padding: 0 10px;
-        margin: auto;
-        position: relative;
-        width: 100%;
-        max-width: 100%;
-    }
-    .header {
-        height: 5em;
-    }
-    .header__logo {
-        font-size: 4rem;
-        margin: 0;
-        letter-spacing: .05em;
-    }
-    .main__container {
-        padding: 10px;
-        margin: auto;
-        position: relative;
-        width: 100%;
-        max-width: 1000px;
-    }
-    .main__form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1em;
-    }
-    .main__label {
-        align-self: flex-start;
-        font-size: 3rem;
-    }
-    .main__input {
-        width: 90%;
-        height: 4em;
-    }
-    .main__add-btn {
-        align-self: flex-end;
-    }
-    .btn {
-        font-size: 2.75rem;
-    }
-    .main__h2 {
-        font-size: 5rem;
-        text-align: center;
-    }
-    .main__hr {
-        height: .45em;
-        align-self: normal;
-    }
-    .main__players-list {
-        padding: 0 2em;
-    }
-    .player {
-        padding: 1em;
-        font-size: 3rem;
-        text-align: center;
-        border: .125em solid white;
-    }
-    .main__btns {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1em;
-    }
-    .main__team {
-        padding: 0 2em;
-    }
-    .main__h4 {
-        font-size: 3rem;
-        text-align: center;
-    }
-    .footer {
-        min-height: 100px;
-    }
-    .footer__p {
-        font-size: 2rem;
-    }
-}
+@media only screen and (min-width: 0em) {}
 
 
 /* Tablet */
@@ -300,185 +279,12 @@ html {
 
 /* Small Desktop */
 
-@media only screen and (min-width: 64em) {
-    .header__container {
-        padding: 0 10px;
-        margin: auto;
-        position: relative;
-        width: 100%;
-        max-width: 450px;
-    }
-    .header__logo {
-        color: white;
-        font-size: 2rem;
-        margin: 0;
-        letter-spacing: .05em;
-    }
-    .header {
-        height: 110px;
-    }
-    .main__container {
-        padding: 10px;
-        margin: auto;
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-    }
-    .main__step:first-child {
-        min-width: 25em;
-    }
-    .main__form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1em;
-    }
-    .main__label {
-        align-self: flex-start;
-        font-size: 1.5rem;
-    }
-    .main__input {
-        width: 90%;
-        height: 2em;
-    }
-    .main__add-btn {
-        align-self: flex-end;
-    }
-    .btn {
-        font-size: 1.25rem;
-    }
-    .main__h2 {
-        font-size: 3rem;
-        text-align: center;
-    }
-    .main__hr {
-        height: .25em;
-        align-self: normal;
-    }
-    .main__players-list {
-        padding: 0 2em;
-    }
-    .player {
-        padding: 1em;
-        font-size: 1.5rem;
-        text-align: center;
-        border: .125em solid white;
-    }
-    .main__btns {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1em;
-    }
-    .main__team {
-        padding: 0 2em;
-    }
-    .main__h4 {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-    .footer {
-        min-height: 80px;
-    }
-    .footer__p {
-        font-size: 1rem;
-    }
-}
+@media only screen and (min-width: 64em) {}
 
 
 /* Large Desktop */
 
-@media only screen and (min-width: 1300px) {
-    .header__container {
-        padding: 0 10px;
-        margin: auto;
-        position: relative;
-        width: 100%;
-        max-width: 450px;
-    }
-    .header__logo {
-        color: white;
-        font-size: 2rem;
-        margin: 0;
-        letter-spacing: .05em;
-    }
-    .header {
-        height: 110px;
-    }
-    .main__container {
-        padding: 10px;
-        margin: auto;
-        position: relative;
-        width: 100%;
-        max-width: 1800px;
-        flex-direction: row;
-        align-items: flex-start;
-    }
-    .main__step:first-child {
-        min-width: 20em;
-    }
-    .main__form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1em;
-    }
-    .main__label {
-        align-self: flex-start;
-        font-size: 1.5rem;
-    }
-    .main__input {
-        width: 90%;
-        height: 2em;
-    }
-    .main__add-btn {
-        align-self: flex-end;
-    }
-    .btn {
-        font-size: 1.25rem;
-    }
-    .main__h2 {
-        font-size: 3rem;
-        text-align: center;
-    }
-    .main__hr {
-        height: .25em;
-        align-self: normal;
-    }
-    .main__players-list {
-        padding: 0 2em;
-    }
-    .player {
-        padding: 1em;
-        font-size: 1.5rem;
-        text-align: center;
-        border: .125em solid white;
-    }
-    .main__btns {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1em;
-    }
-    .main__team {
-        padding: 0 2em;
-    }
-    .main__h4 {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-    .footer {
-        min-height: 80px;
-    }
-    .footer__p {
-        font-size: 1rem;
-    }
-}
+@media only screen and (min-width: 1300px) {}
 
 
 /* 

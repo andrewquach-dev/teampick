@@ -35,12 +35,12 @@ let draggablePlayer;
 ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝                                                                                                                                                           
 */
 
-const toggleActiveState = function () {
+const toggleActiveState = function() {
     this.classList.contains("active") ?
         this.classList.remove("active") : this.classList.add("active");
 };
 const updatePlayersList = () => players = document.querySelectorAll("ul#players-list>li");
-const addPlayer = function () {
+const addPlayer = function() {
     const inputtedPlayerNameValue = inputtedPlayerName.value;
 
     if (doesPlayerExist(inputtedPlayerNameValue)) {
@@ -62,10 +62,10 @@ const addPlayer = function () {
     }
 };
 const doesPlayerExist = (newPlayer) => [...players].map((player) => player.innerText).includes(newPlayer);
-const createErrorMsg = function (msg, duration, ele) {
+const createErrorMsg = function(msg, duration, ele) {
     ele.innerHTML = msg;
     ele.style.display = "block";
-    setTimeout(function () {
+    setTimeout(function() {
         ele.style.display = "none";
     }, duration);
 };
@@ -75,9 +75,9 @@ const isListEmpty = (selector) =>
     document.querySelectorAll(selector).length === 0;
 const removeListLine = () =>
     isListEmpty("#players-list>li") ?
-        (playersList.style.display = "none") :
-        (playersList.style.display = "block");
-const randomize = function (players) {
+    (playersList.style.display = "none") :
+    (playersList.style.display = "block");
+const randomize = function(players) {
     let playersArray = [...players].map((node) => node.innerText);
     let currentIndex = playersArray.length,
         temporaryValue,
@@ -103,7 +103,7 @@ const randomlyFillTeam = (randomPlayers, team) =>
         team.appendChild(ele);
         playersInTeams = document.querySelectorAll(".player");
     });
-const assignTeams = function (players) {
+const assignTeams = function(players) {
     const halfLength = Math.ceil(players.length / 2);
     const teamOne = players.splice(0, halfLength);
     const teamTwo = players;
@@ -143,7 +143,7 @@ const makeDroppable = (teams) => {
 };
 const dragStart = (e) => draggablePlayer = e.target;
 const dragEnd = () => {
-   
+
     draggablePlayer = null;
 }
 
@@ -170,12 +170,12 @@ const dragDrop = (e) => {
 */
 
 addPlayerBtn.addEventListener("click", addPlayer);
-deleteBtn.addEventListener("click", function () {
+deleteBtn.addEventListener("click", function() {
     remove(".active");
     updatePlayersList();
     isListEmpty("#players-list");
 });
-clearBtn.addEventListener("click", function () {
+clearBtn.addEventListener("click", function() {
     remove("li.player");
     isListEmpty("#players-list");
     updatePlayersList();
