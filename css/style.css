@@ -1,29 +1,25 @@
-/* Box Model Hack */
-
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-
-/* Clear fix hack */
-
-.clearfix:after {
-    content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0;
-}
-
-.clear {
-    clear: both;
-}
-
-
-/* 
+    /* Box Model Hack */
+    
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    /* Clear fix hack */
+    
+    .clearfix:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+    
+    .clear {
+        clear: both;
+    }
+    /* 
 ██████╗  █████╗ ███████╗███████╗    ███████╗████████╗██╗   ██╗██╗     ███████╗███████╗
 ██╔══██╗██╔══██╗██╔════╝██╔════╝    ██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔════╝██╔════╝
 ██████╔╝███████║███████╗█████╗      ███████╗   ██║    ╚████╔╝ ██║     █████╗  ███████╗
@@ -31,15 +27,20 @@
 ██████╔╝██║  ██║███████║███████╗    ███████║   ██║      ██║   ███████╗███████╗███████║
 ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝    ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝╚══════╝                                                                                   
  */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-}
-
-
-/* 
+    
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+    }
+    
+     :root {
+        --primary: #eaa121;
+        --dark: #000;
+        --medium: #1b1b1b;
+        --light: #2e2e2e;
+    }
+    /* 
 ██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
 ██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝
 ██║     ███████║ ╚████╔╝ ██║   ██║██║   ██║   ██║   
@@ -47,210 +48,208 @@ body {
 ███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║   
 ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝                                                       
 */
-
-.page__inner {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-.header {
-    height: 2.5em;
-}
-
-.header__inner {
-    height: 100%;
-    display: grid;
-    place-items: center;
-}
-
-.header__logo {
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 5px;
-    color: white;
-}
-
-.container {
-    padding: 10px 7.6px;
-    margin: auto;
-    position: relative;
-    width: 100%;
-    max-width: 99%;
-}
-
-.main {}
-
-.main__inner {
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-}
-
-.main__step {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5em;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
-    width: 100%;
-}
-
-.main__hr {
-    border: none;
-    background-color: #ccc;
-    color: #ccc;
-    height: .13em;
-    align-self: normal;
-    border-radius: 5px;
-    margin: .25em 0 .75em 0;
-}
-
-.main__form {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-.main__input {
-    width: 100%;
-}
-
-.main__label {
-    font-size: .95rem;
-}
-
-.main__btns {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1em;
-}
-
-#clear-btn {
-    width: 40%;
-}
-
-#delete-btn {
-    width: 40%;
-}
-
-.main__players-list {
-    list-style-type: none;
-}
-
-.main__teams {
-    display: flex;
-    gap: .5em;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-}
-
-.main__team-div {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-}
-
-.main__team {
-    flex: 1;
-    list-style-type: none;
-}
-
-.main__h4 {
-    text-align: center;
-    margin-bottom: .5em;
-}
-
-.main__i {
-    margin-right: 10px;
-}
-
-.main__share {
-    width: 40%;
-}
-
-.main__randomize {
-    width: 50%;
-}
-
-.footer {
-    height: 2em;
-    margin-top: auto;
-    display: grid;
-    place-content: center;
-}
-
-.footer__p {
-    font-size: 1rem;
-}
-
-.main__add-btn {
-    align-self: flex-end;
-    width: 50%;
-}
-
-.--dark {
-    background-color: black;
-    color: white;
-}
-
-.error-msg {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
-    display: none;
-    border-radius: 1em;
-    padding: .25em 1em;
-}
-
-.btn {
-    border: none;
-    padding: .75em 0;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #fff;
-    color: black;
-    box-shadow: 0 0 4px #999;
-    outline: none;
-}
-
-.--over {
-    border: 3px dotted white;
-}
-
-.--ripple {
-    background-position: center;
-    transition: background 0.8s;
-}
-
-.--ripple:hover {
-    background: darkgrey radial-gradient(circle, transparent 1%, darkgrey 1%) center/15000%;
-}
-
-.--ripple:active {
-    background-color: lightgrey;
-    background-size: 100%;
-    transition: background 0s;
-}
-
-.player {
-    text-align: center;
-    padding: .75em;
-    cursor: pointer;
-    border: 1px solid white;
-}
-
-.player:hover {
-    background-color: lightgrey;
-}
-
-.active {
-    background-color: darkgrey;
-}
-
-
-/* 
+    
+    .page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .header {
+        height: 2.5em;
+    }
+    
+    .header__inner {
+        height: 100%;
+        display: grid;
+        place-items: center;
+    }
+    
+    .header__logo {
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: bold;
+        letter-spacing: 5px;
+        color: white;
+    }
+    
+    .container {
+        padding: 10px 7.6px;
+        margin: auto;
+        position: relative;
+        width: 100%;
+        max-width: 425px;
+    }
+    
+    .main {}
+    
+    .main__inner {
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+    }
+    
+    .main__step {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5em;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+        width: 100%;
+    }
+    
+    .main__hr {
+        border: none;
+        background-color: #ccc;
+        color: #ccc;
+        height: .13em;
+        align-self: normal;
+        border-radius: 5px;
+        margin: .25em 0 .75em 0;
+    }
+    
+    .main__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .main__input {
+        width: 100%;
+    }
+    
+    .main__label {
+        font-size: .95rem;
+    }
+    
+    .main__btns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1em;
+    }
+    
+    #clear-btn {
+        width: 40%;
+    }
+    
+    #delete-btn {
+        width: 40%;
+    }
+    
+    .main__players-list {
+        list-style-type: none;
+    }
+    
+    .main__teams {
+        display: flex;
+        gap: .5em;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .main__team-div {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .main__team {
+        flex: 1;
+        list-style-type: none;
+    }
+    
+    .main__h4 {
+        text-align: center;
+        margin-bottom: .5em;
+    }
+    
+    .main__i {
+        margin-right: 10px;
+    }
+    
+    .main__share {
+        width: 40%;
+    }
+    
+    .main__randomize {
+        width: 50%;
+    }
+    
+    .footer {
+        height: 2em;
+        margin-top: auto;
+        display: grid;
+        place-content: center;
+    }
+    
+    .footer__p {
+        font-size: 1rem;
+    }
+    
+    .main__add-btn {
+        align-self: flex-end;
+        width: 50%;
+    }
+    
+    .--dark {
+        background-color: black;
+        color: white;
+    }
+    
+    .error-msg {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+        display: none;
+        border-radius: 1em;
+        padding: .25em 1em;
+    }
+    
+    .btn {
+        border: none;
+        padding: .75em 0;
+        font-size: 1rem;
+        cursor: pointer;
+        background-color: #fff;
+        color: black;
+        box-shadow: 0 0 4px #999;
+        outline: none;
+    }
+    
+    .--over {
+        border: 3px dotted white;
+    }
+    
+    .--ripple {
+        background-position: center;
+        transition: background 0.8s;
+    }
+    
+    .--ripple:hover {
+        background: darkgrey radial-gradient(circle, transparent 1%, darkgrey 1%) center/15000%;
+    }
+    
+    .--ripple:active {
+        background-color: lightgrey;
+        background-size: 100%;
+        transition: background 0s;
+    }
+    
+    .player {
+        text-align: center;
+        padding: .75em;
+        cursor: pointer;
+        border: 1px solid white;
+    }
+    
+    .player:hover {
+        background-color: lightgrey;
+    }
+    
+    .active {
+        background-color: darkgrey;
+    }
+    /* 
 ███╗   ███╗███████╗██████╗ ██╗ █████╗      ██████╗ ██╗   ██╗███████╗██████╗ ██╗███████╗███████╗
 ████╗ ████║██╔════╝██╔══██╗██║██╔══██╗    ██╔═══██╗██║   ██║██╔════╝██╔══██╗██║██╔════╝██╔════╝
 ██╔████╔██║█████╗  ██║  ██║██║███████║    ██║   ██║██║   ██║█████╗  ██████╔╝██║█████╗  ███████╗
@@ -259,42 +258,59 @@ body {
 ╚═╝     ╚═╝╚══════╝╚═════╝ ╚═╝╚═╝  ╚═╝     ╚══▀▀═╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝
                                                                                                 
 */
-
-
-/* Mobile */
-
-@media only screen and (min-width: 0em) {}
-
-
-/* Tablet */
-
-@media only screen and (min-width: 48em) {
-    .main__inner {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        align-content: flex-start;
+    /* Mobile */
+    
+    @media only screen and (min-width: 0em) {}
+    /* Phablet */
+    
+    @media only screen and (min-width: 36em) {
+        .main__inner {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            align-content: flex-start;
+            gap: 0;
+        }
+        #add-section {
+            flex: 1;
+            margin-bottom: .5em;
+        }
+        #players-section {
+            flex: 1;
+            margin: 0 0 .5em .5em;
+        }
+        #teams-section {
+            flex: auto;
+        }
+        .container {
+            max-width: 576px;
+        }
     }
-    #add-section {
-        width: 29%;
+    /* Tablet */
+    
+    @media only screen and (min-width: 48em) {
+        .container {
+            max-width: 768px;
+        }
     }
-    #players-section {
-        width: 69%;
+    /* Small Desktop */
+    
+    @media only screen and (min-width: 64em) {}
+    /* Large Desktop */
+    
+    @media only screen and (min-width: 1300px) {
+        #players-section {
+            flex: 1;
+            margin-right: .5em;
+        }
+        #teams-section {
+            flex: 2;
+        }
+        .container {
+            max-width: 1024px;
+        }
     }
-}
-
-
-/* Small Desktop */
-
-@media only screen and (min-width: 64em) {}
-
-
-/* Large Desktop */
-
-@media only screen and (min-width: 1300px) {}
-
-
-/* 
+    /* 
  █████╗ ██████╗ ██████╗ ██╗████████╗██╗ ██████╗ ███╗   ██╗ █████╗ ██╗         ███████╗████████╗██╗   ██╗██╗     ███████╗███████╗
 ██╔══██╗██╔══██╗██╔══██╗██║╚══██╔══╝██║██╔═══██╗████╗  ██║██╔══██╗██║         ██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔════╝██╔════╝
 ███████║██║  ██║██║  ██║██║   ██║   ██║██║   ██║██╔██╗ ██║███████║██║         ███████╗   ██║    ╚████╔╝ ██║     █████╗  ███████╗

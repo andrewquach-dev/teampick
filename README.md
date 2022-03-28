@@ -3,7 +3,7 @@ Tool that makes it easier to decide teams randomly.
 
 **Link to project:** https://ndrwquach.github.io/teampick/
 
-![Screenshot of website](https://i.imgur.com/u2UP2M5.png)
+![Screenshot of website](https://i.imgur.com/kU6N3ZF.png)
 
 ## How It's Made:
 
