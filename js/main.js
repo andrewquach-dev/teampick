@@ -13,11 +13,12 @@ const addPlayerBtn = document.querySelector("#add-btn");
 const inputtedPlayerName = document.querySelector("#inputted-player-name");
 const playerForm = document.querySelector(".main__form");
 const playersList = document.querySelector("#players-list");
-const addErrorMsg = document.querySelector("#add-error-msg");
-const randoErrorMsg = document.querySelector("#rando-error-msg");
+const addErrorMsg = document.querySelector(".add-error-msg");
+const teamsErrorMsg = document.querySelector(".teams-error-msg");
 const deleteBtn = document.querySelector("#delete-btn");
 const clearBtn = document.querySelector("#clear-btn");
 const randoBtn = document.querySelector("#rando-btn");
+const shareBtn = document.querySelector("#share-btn");
 const teamOneList = document.querySelector("#team-one");
 const teamTwoList = document.querySelector("#team-two");
 let players = document.querySelectorAll("ul#players-list>li");
@@ -49,6 +50,7 @@ const addPlayer = function() {
         inputtedPlayerNameValue.value === 0 ||
         inputtedPlayerNameValue === ""
     ) {
+        tap(addErrorMsg);
         createErrorMsg("The field is empty!", 1500, addErrorMsg);
     } else {
         let newPlayer = document.createElement("li");
@@ -124,7 +126,7 @@ const assignTeams = function(players) {
     makeDraggable(playersInTeams);
     makeDroppable(teams);
 };
-const randomizeAndAssign = () => isListEmpty("#players-list>li") ? createErrorMsg("There are no players to randomize!", 1500, randoErrorMsg) :
+const randomizeAndAssign = () => isListEmpty("#players-list>li") ? createErrorMsg("There are no players to randomize!", 1500, teamsErrorMsg) :
     assignTeams(randomize(document.querySelectorAll("#players-list>li")));
 
 const makeDraggable = (players) => {
@@ -160,6 +162,23 @@ const dragDrop = (e) => {
     }
     e.target.appendChild(draggablePlayer);
 };
+
+const selectAndCopy = () => {
+    const text_to_copy = document.querySelector('.main__teams').innerText + "\nTeams generated at https://ndrwquach.github.io/teampick/";
+    tap(text_to_copy);
+
+    if (isListEmpty("#team-one>li") || isListEmpty("#team-two>li")) {
+        createErrorMsg("No teams to share...", 1500, teamsErrorMsg);
+    }
+    navigator.clipboard.writeText(text_to_copy).then(
+            function() {
+                console.log("yeah!"); // success 
+            })
+        .catch(
+            function() {
+                console.log("err"); // error
+            });
+};
 /*
 ███████╗██╗   ██╗███████╗███╗   ██╗████████╗    ██╗     ██╗███████╗████████╗███████╗███╗   ██╗███████╗██████╗ ███████╗
 ██╔════╝██║   ██║██╔════╝████╗  ██║╚══██╔══╝    ██║     ██║██╔════╝╚══██╔══╝██╔════╝████╗  ██║██╔════╝██╔══██╗██╔════╝
@@ -182,9 +201,24 @@ clearBtn.addEventListener("click", function() {
     removeListLine();
 });
 randoBtn.addEventListener("click", randomizeAndAssign);
-players
+
+shareBtn.addEventListener("click", selectAndCopy);
+
+
+// ██████╗ ███████╗██████╗ ██╗   ██╗ ██████╗  ██████╗ ██╗███╗   ██╗ ██████╗ 
+// ██╔══██╗██╔════╝██╔══██╗██║   ██║██╔════╝ ██╔════╝ ██║████╗  ██║██╔════╝ 
+// ██║  ██║█████╗  ██████╔╝██║   ██║██║  ███╗██║  ███╗██║██╔██╗ ██║██║  ███╗
+// ██║  ██║██╔══╝  ██╔══██╗██║   ██║██║   ██║██║   ██║██║██║╚██╗██║██║   ██║
+// ██████╔╝███████╗██████╔╝╚██████╔╝╚██████╔╝╚██████╔╝██║██║ ╚████║╚██████╔╝
+// ╚═════╝ ╚══════╝╚═════╝  ╚═════╝  ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ 
+//     
 
 //FOR TESTING! Adds players on startup (The Joeys)
 players.forEach((player) => {
     player.addEventListener("click", toggleActiveState);
 });
+
+function tap(x) {
+    console.log(x);
+    return x;
+}
