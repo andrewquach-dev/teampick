@@ -54,8 +54,7 @@
         color: white;
     }
     
-    .add-error-msg,
-    .teams-error-msg {
+    .error-msg {
         color: #a94442;
         background-color: #f2dede;
         border-color: #ebccd1;
@@ -63,9 +62,14 @@
         border-radius: 1em;
         padding: .25em 1em;
         font-size: 1rem;
+        align-self: flex-start;
     }
     
-    .teams-error-msg {
+    #players-error-msg {
+        margin-top: 1em;
+    }
+    
+    #teams-error-msg {
         margin-top: 1em;
     }
     
@@ -81,7 +85,7 @@
     }
     
     .--over {
-        border: 3px dotted white;
+        border: 3px dotted #666;
     }
     
     .--ripple {
@@ -193,9 +197,11 @@
         }
         .player {
             text-align: center;
-            padding: .75em;
+            padding: .5em .75em;
             cursor: pointer;
-            border: 1px solid white;
+            color: black;
+            background-color: #ccc;
+            margin: 1em;
         }
         .main__teams {
             display: flex;
@@ -239,6 +245,7 @@
             align-self: flex-end;
             width: 50%;
         }
+        #team-one {}
     }
     /* Phablet */
     
@@ -305,7 +312,10 @@
             font-size: 1.75rem;
         }
         .main {}
-        .main__inner {}
+        .main__inner {
+            margin-top: .75em;
+            gap: 1em;
+        }
         .main__step {}
         .main__hr {}
         .main__form {}

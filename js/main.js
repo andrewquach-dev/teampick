@@ -13,8 +13,9 @@ const addPlayerBtn = document.querySelector("#add-btn");
 const inputtedPlayerName = document.querySelector("#inputted-player-name");
 const playerForm = document.querySelector(".main__form");
 const playersList = document.querySelector("#players-list");
-const addErrorMsg = document.querySelector(".add-error-msg");
-const teamsErrorMsg = document.querySelector(".teams-error-msg");
+const addErrorMsg = document.querySelector("#add-error-msg");
+const teamsErrorMsg = document.querySelector("#teams-error-msg");
+const playersErrorMsg = document.querySelector("#players-error-msg");
 const deleteBtn = document.querySelector("#delete-btn");
 const clearBtn = document.querySelector("#clear-btn");
 const randoBtn = document.querySelector("#rando-btn");
@@ -131,36 +132,57 @@ const randomizeAndAssign = () => isListEmpty("#players-list>li") ? createErrorMs
 
 const makeDraggable = (players) => {
     players.forEach((player) => {
-        player.addEventListener("dragstart", dragStart);
-        player.addEventListener("dragend", dragEnd);
+        player.addEventListener("dragstart", handleDragStart);
+        player.addEventListener("dragend", handleDragEnd);
     });
 };
 const makeDroppable = (teams) => {
     teams.forEach((team) => {
-        team.addEventListener("dragover", dragOver);
-        team.addEventListener("dragenter", dragEnter);
-        team.addEventListener("dragleave", dragLeave);
-        team.addEventListener("drop", dragDrop);
+        team.addEventListener("dragover", handleDragOver);
+        team.addEventListener("dragenter", handleDragEnter);
+        team.addEventListener("dragleave", handleDragLeave);
+        team.addEventListener("drop", handleDragDrop);
     });
 };
-const dragStart = (e) => draggablePlayer = e.target;
-const dragEnd = () => {
-
+const handleDragStart = (e) => {
+    e.target.style.opacity = '0.4';
+    draggablePlayer = e.target;
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', e.target.innerHTML);
+};
+const handleDragEnd = (e) => {
+    e.target.style.opacity = '1';
     draggablePlayer = null;
 }
 
-const dragOver = (e) => e.preventDefault();
-const dragEnter = (e) => e.target.classList.add('--over');
-const dragLeave = (e) => e.target.classList.remove('--over');
-const dragDrop = (e) => {
-    let temp;
+const handleDragOver = (e) => {
+    e.dataTransfer.dropEffect = 'move';
+    e.preventDefault();
+    return false;
+}
+const handleDragEnter = (e) => {
+    e.target.classList.add('--over');
+}
+const handleDragLeave = (e) => {
+    e.stopPropagation();
     e.target.classList.remove('--over');
-    if (e.target.className == "main__team") {
+}
+
+const handleDragDrop = (e) => {
+    e.currentTarget.classList.remove('--over');
+    if (e.target.tagName.toLowerCase() === 'ul') {
         draggablePlayer.parentNode.removeChild(draggablePlayer);
         e.target.append(draggablePlayer);
+    } else if (e.target.tagName.toLowerCase() === 'li') {
+        if (e.target.innerText !== draggablePlayer.innerText) {
+            draggablePlayer.innerHTML = e.target.innerHTML;
+            e.target.innerHTML = e.dataTransfer.getData('text/html');
+            e.target.classList.remove('--over');
+        }
 
     }
-    e.target.appendChild(draggablePlayer);
+    return false;
+
 };
 
 const selectAndCopy = () => {
@@ -172,7 +194,7 @@ const selectAndCopy = () => {
     }
     navigator.clipboard.writeText(text_to_copy).then(
             function() {
-                console.log("yeah!"); // success 
+                console.log("yay!"); // success 
             })
         .catch(
             function() {
@@ -190,15 +212,22 @@ const selectAndCopy = () => {
 
 addPlayerBtn.addEventListener("click", addPlayer);
 deleteBtn.addEventListener("click", function() {
-    remove(".active");
-    updatePlayersList();
-    isListEmpty("#players-list");
+    if (isListEmpty("#players-list>li")) {
+        createErrorMsg("There are no players to delete!", 1500, playersErrorMsg);
+    } else {
+        remove(".active");
+        updatePlayersList();
+    }
+
 });
 clearBtn.addEventListener("click", function() {
-    remove("li.player");
-    isListEmpty("#players-list");
-    updatePlayersList();
-    removeListLine();
+    if (isListEmpty("#players-list>li")) {
+        createErrorMsg("There are no players to clear!", 1500, playersErrorMsg);
+    } else {
+        remove("li.player");
+        updatePlayersList();
+        removeListLine();
+    }
 });
 randoBtn.addEventListener("click", randomizeAndAssign);
 
