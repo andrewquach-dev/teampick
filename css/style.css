@@ -72,6 +72,14 @@
     #teams-error-msg {
         margin-top: 1em;
     }
+    .player {
+        text-align: center;
+        padding: .5em .75em;
+        cursor: pointer;
+        color: black;
+        background-color: white;
+        margin: 1em;
+    }
     
     .btn {
         border: none;
@@ -109,6 +117,10 @@
     
     .active {
         background-color: darkgrey;
+    }
+
+    a:active ,a:visited{
+        color: white;
     }
     /* 
 ███╗   ███╗███████╗██████╗ ██╗ █████╗      ██████╗ ██╗   ██╗███████╗██████╗ ██╗███████╗███████╗
@@ -159,7 +171,10 @@
             display: flex;
             flex-direction: column;
             padding: 1.5em;
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+            box-shadow:
+      1px 2px 2px hsl(220deg 60% 50% / 0.333),
+      2px 4px 4px hsl(220deg 60% 50% / 0.333),
+      3px 6px 6px hsl(220deg 60% 50% / 0.333);
             width: 100%;
         }
         .main__hr {
@@ -177,7 +192,7 @@
             gap: 1em;
         }
         .main__input {
-            padding: 10px;
+            padding: .5em;
             height: 2em;
             width: 100%;
         }
@@ -194,14 +209,6 @@
         }
         .main__players-list {
             list-style-type: none;
-        }
-        .player {
-            text-align: center;
-            padding: .5em .75em;
-            cursor: pointer;
-            color: black;
-            background-color: #ccc;
-            margin: 1em;
         }
         .main__teams {
             display: flex;
