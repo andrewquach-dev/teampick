@@ -26,9 +26,13 @@
             <section id="add-section" class="main__step --dark">
                 <h2 class="main__h2">Add</h2>
                 <hr class="main__hr">
-                <form action="" class="main__form">
-                    <input type="text" class="main__input" placeholder="Name" id="inputted-player-name">
-                    <button type="button" href="" class="btn main__add-btn --ripple" id="add-btn"><i
+                <form action="" class="add-section__form">
+                    <div>
+                        <input type="checkbox" class="add-section__checkbox">
+                        <label class="add-section__checkbox-label" for="checkbox">Size</label>
+                    </div>
+                    <input type="text" class="add-section__input" placeholder="Name" id="inputted-player-name">
+                    <button type="button" href="" class="btn add-section__add-btn --ripple" id="add-btn"><i
                             class="main__i fa-solid fa-user-plus"></i>Add</button>
                     <span id="add-error-msg" class="error-msg">asdas</span>
                 </form>

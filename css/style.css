@@ -161,7 +161,13 @@
             width: 100%;
             max-width: 425px;
         }
-        .main {}
+
+        .add-section__checkbox{
+            transform: scale(1.5);
+        }
+       .add-section__checkbox-label{
+           margin-left: .5em;
+       }
         .main__inner {
             display: flex;
             flex-direction: column;
@@ -171,10 +177,6 @@
             display: flex;
             flex-direction: column;
             padding: 1.5em;
-            box-shadow:
-      1px 2px 2px hsl(220deg 60% 50% / 0.333),
-      2px 4px 4px hsl(220deg 60% 50% / 0.333),
-      3px 6px 6px hsl(220deg 60% 50% / 0.333);
             width: 100%;
         }
         .main__hr {
@@ -186,14 +188,13 @@
             border-radius: 5px;
             margin: .25em 0 .75em 0;
         }
-        .main__form {
+        .add-section__form {
             display: flex;
             flex-direction: column;
             gap: 1em;
         }
-        .main__input {
-            padding: .5em;
-            height: 2em;
+        .add-section__input {
+            padding: .25em;
             width: 100%;
         }
         .main__btns {
@@ -248,7 +249,7 @@
         .footer__p {
             font-size: 1rem;
         }
-        .main__add-btn {
+        .add-section__add-btn {
             align-self: flex-end;
             width: 50%;
         }
@@ -294,7 +295,11 @@
     }
     /* Small Desktop */
     
-    @media only screen and (min-width: 64em) {}
+    @media only screen and (min-width: 64em) {
+        .container{
+            max-width: 1024px;
+        }
+    }
     /* Large Desktop */
     
     @media only screen and (min-width: 1300px) {
@@ -306,7 +311,7 @@
             flex: 2;
         }
         .container {
-            max-width: 1024px;
+            max-width: 1300px;
         }
         .page {
             min-height: 100vh;
