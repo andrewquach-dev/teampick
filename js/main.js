@@ -22,6 +22,8 @@ const randoBtn = document.querySelector("#rando-btn");
 const shareBtn = document.querySelector("#share-btn");
 const teamOneList = document.querySelector("#team-one");
 const teamTwoList = document.querySelector("#team-two");
+const sizeModeChkBox = document.querySelector("#add-section__checkbox");
+const sizeModeBtns = document.querySelector(".add-section__btns");
 let players = document.querySelectorAll("ul#players-list>li");
 let playersInTeams;
 
@@ -63,6 +65,16 @@ const addPlayer = function() {
         updatePlayersList();
         removeListLine();
     }
+};
+const displaySizeButtons = (e)=>{
+    if (e.target.checked) {
+        console.log("Checkbox is checked..");
+        sizeModeBtns.style.display = "flex";
+        
+      } else {
+        console.log("Checkbox is not checked..");
+        sizeModeBtns.style.display = "none";
+      }
 };
 const doesPlayerExist = (newPlayer) => [...players].map((player) => player.innerText).includes(newPlayer);
 const createErrorMsg = function(msg, duration, ele) {
@@ -211,6 +223,7 @@ const selectAndCopy = () => {
 */
 
 addPlayerBtn.addEventListener("click", addPlayer);
+sizeModeChkBox.addEventListener("change",displaySizeButtons);
 deleteBtn.addEventListener("click", function() {
     if (isListEmpty("#players-list>li")) {
         createErrorMsg("There are no players to delete!", 1500, playersErrorMsg);

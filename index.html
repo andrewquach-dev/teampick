@@ -28,10 +28,16 @@
                 <hr class="main__hr">
                 <form action="" class="add-section__form">
                     <div>
-                        <input type="checkbox" class="add-section__checkbox">
-                        <label class="add-section__checkbox-label" for="checkbox">Size</label>
+                        <input type="checkbox" id="add-section__checkbox">
+                        <label class="add-section__checkbox-label" for="checkbox">Size Mode</label>
                     </div>
                     <input type="text" class="add-section__input" placeholder="Name" id="inputted-player-name">
+                    <ul class="add-section__btns">
+                        <li><button type="button" class="add-section__size-btns btn --ripple">S</button></li>
+                        <li><button type="button" class="add-section__size-btns btn --ripple">M</button></li>
+                        <li><button type="button" class="add-section__size-btns btn --ripple">L</button></li>
+                        <li><button type="button" class="add-section__size-btns btn --ripple">XL</button></li>
+                    </ul>
                     <button type="button" href="" class="btn add-section__add-btn --ripple" id="add-btn"><i
                             class="main__i fa-solid fa-user-plus"></i>Add</button>
                     <span id="add-error-msg" class="error-msg">asdas</span>

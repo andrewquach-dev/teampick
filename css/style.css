@@ -1,25 +1,27 @@
-    /* Box Model Hack */
-    
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-    }
-    /* Clear fix hack */
-    
-    .clearfix:after {
-        content: ".";
-        display: block;
-        clear: both;
-        visibility: hidden;
-        line-height: 0;
-        height: 0;
-    }
-    
-    .clear {
-        clear: both;
-    }
-    /* 
+/* Box Model Hack */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Clear fix hack */
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+/* 
 ██████╗  █████╗ ███████╗███████╗    ███████╗████████╗██╗   ██╗██╗     ███████╗███████╗
 ██╔══██╗██╔══██╗██╔════╝██╔════╝    ██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔════╝██╔════╝
 ██████╔╝███████║███████╗█████╗      ███████╗   ██║    ╚████╔╝ ██║     █████╗  ███████╗
@@ -27,20 +29,22 @@
 ██████╔╝██║  ██║███████║███████╗    ███████║   ██║      ██║   ███████╗███████╗███████║
 ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝    ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝╚══════╝                                                                                   
  */
-    
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-    body {
-        font-family: 'Roboto', sans-serif;
-        font-size: 20px;
-    }
-    
-     :root {
-        --primary: #eaa121;
-        --dark: #000;
-        --medium: #1b1b1b;
-        --light: #2e2e2e;
-    }
-    /* 
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+:root {
+    --primary: #eaa121;
+    --dark: #000;
+    --medium: #1b1b1b;
+    --light: #2e2e2e;
+}
+
+/* 
 ██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
 ██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝
 ██║     ███████║ ╚████╔╝ ██║   ██║██║   ██║   ██║   
@@ -48,81 +52,84 @@
 ███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║   
 ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝                                                       
 */
-    
-    .--dark {
-        background-color: black;
-        color: white;
-    }
-    
-    .error-msg {
-        color: #a94442;
-        background-color: #f2dede;
-        border-color: #ebccd1;
-        display: none;
-        border-radius: 1em;
-        padding: .25em 1em;
-        font-size: 1rem;
-        align-self: flex-start;
-    }
-    
-    #players-error-msg {
-        margin-top: 1em;
-    }
-    
-    #teams-error-msg {
-        margin-top: 1em;
-    }
-    .player {
-        text-align: center;
-        padding: .5em .75em;
-        cursor: pointer;
-        color: black;
-        background-color: white;
-        margin: 1em;
-    }
-    
-    .btn {
-        border: none;
-        padding: .75em .2em;
-        font-size: 1rem;
-        cursor: pointer;
-        background-color: #fff;
-        color: black;
-        box-shadow: 0 0 4px #999;
-        outline: none;
-    }
-    
-    .--over {
-        border: 3px dotted #666;
-    }
-    
-    .--ripple {
-        background-position: center;
-        transition: background 0.8s;
-    }
-    
-    .--ripple:hover {
-        background: darkgrey radial-gradient(circle, transparent 1%, darkgrey 1%) center/15000%;
-    }
-    
-    .--ripple:active {
-        background-color: lightgrey;
-        background-size: 100%;
-        transition: background 0s;
-    }
-    
-    .player:hover {
-        background-color: lightgrey;
-    }
-    
-    .active {
-        background-color: darkgrey;
-    }
 
-    a:active ,a:visited{
-        color: white;
-    }
-    /* 
+.--dark {
+    background-color: black;
+    color: white;
+}
+
+.error-msg {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    display: none;
+    border-radius: 1em;
+    padding: .25em 1em;
+    font-size: 1rem;
+    align-self: flex-start;
+}
+
+#players-error-msg {
+    margin-top: 1em;
+}
+
+#teams-error-msg {
+    margin-top: 1em;
+}
+
+.player {
+    text-align: center;
+    padding: .5em .75em;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    margin: 1em;
+}
+
+.btn {
+    border: none;
+    padding: .75em .2em;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #fff;
+    color: black;
+    box-shadow: 0 0 4px #999;
+    outline: none;
+}
+
+.--over {
+    border: 3px dotted #666;
+}
+
+.--ripple {
+    background-position: center;
+    transition: background 0.8s;
+}
+
+.--ripple:hover {
+    background: darkgrey radial-gradient(circle, transparent 1%, darkgrey 1%) center/15000%;
+}
+
+.--ripple:active {
+    background-color: lightgrey;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.player:hover {
+    background-color: lightgrey;
+}
+
+.active {
+    background-color: darkgrey;
+}
+
+a:active,
+a:visited {
+    color: white;
+}
+
+/* 
 ███╗   ███╗███████╗██████╗ ██╗ █████╗      ██████╗ ██╗   ██╗███████╗██████╗ ██╗███████╗███████╗
 ████╗ ████║██╔════╝██╔══██╗██║██╔══██╗    ██╔═══██╗██║   ██║██╔════╝██╔══██╗██║██╔════╝██╔════╝
 ██╔████╔██║█████╗  ██║  ██║██║███████║    ██║   ██║██║   ██║█████╗  ██████╔╝██║█████╗  ███████╗
@@ -131,224 +138,296 @@
 ╚═╝     ╚═╝╚══════╝╚═════╝ ╚═╝╚═╝  ╚═╝     ╚══▀▀═╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝
                                                                                                 
 */
-    /* Mobile */
-    
-    @media only screen and (min-width: 0em) {
-        .page {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        .header {
-            height: 50px;
-        }
-        .header__inner {
-            height: 100%;
-            display: grid;
-            place-items: center;
-        }
-        .header__logo {
-            cursor: pointer;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            color: white;
-        }
-        .container {
-            padding: 10px 7.6px;
-            margin: auto;
-            position: relative;
-            width: 100%;
-            max-width: 425px;
-        }
+/* Mobile */
 
-        .add-section__checkbox{
-            transform: scale(1.5);
-        }
-       .add-section__checkbox-label{
-           margin-left: .5em;
-       }
-        .main__inner {
-            display: flex;
-            flex-direction: column;
-            gap: .5em;
-        }
-        .main__step {
-            display: flex;
-            flex-direction: column;
-            padding: 1.5em;
-            width: 100%;
-        }
-        .main__hr {
-            border: none;
-            background-color: #ccc;
-            color: #ccc;
-            height: .13em;
-            align-self: normal;
-            border-radius: 5px;
-            margin: .25em 0 .75em 0;
-        }
-        .add-section__form {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-        }
-        .add-section__input {
-            padding: .25em;
-            width: 100%;
-        }
-        .main__btns {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1em;
-        }
-        #clear-btn {
-            width: 45%;
-        }
-        #delete-btn {
-            width: 45%;
-        }
-        .main__players-list {
-            list-style-type: none;
-        }
-        .main__teams {
-            display: flex;
-            gap: .5em;
-            align-items: flex-start;
-            justify-content: center;
-            width: 100%;
-        }
-        .main__team-div {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-        }
-        .main__team {
-            flex: 1;
-            list-style-type: none;
-        }
-        .main__h4 {
-            text-align: center;
-            margin-bottom: .5em;
-        }
-        .main__i {
-            margin-right: 10px;
-        }
-        .main__share {
-            width: 45%;
-        }
-        .main__randomize {
-            width: 50%;
-        }
-        .footer {
-            height: 40px;
-            margin-top: auto;
-            display: grid;
-            place-content: center;
-        }
-        .footer__p {
-            font-size: 1rem;
-        }
-        .add-section__add-btn {
-            align-self: flex-end;
-            width: 50%;
-        }
-        #team-one {}
+@media only screen and (min-width: 0em) {
+    .page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
-    /* Phablet */
-    
-    @media only screen and (min-width: 36em) {
-        .main__inner {
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            align-content: flex-start;
-            gap: 0;
-        }
-        #add-section {
-            flex: 1;
-            margin-bottom: .5em;
-        }
-        #players-section {
-            flex: 1;
-            margin: 0 0 .5em .5em;
-        }
-        #teams-section {
-            flex: auto;
-        }
-        .container {
-            max-width: 576px;
-        }
+
+    .header {
+        height: 50px;
     }
-    /* Tablet */
-    
-    @media only screen and (min-width: 48em) {
-        .header {
-            height: 80px;
-        }
-        .footer {
-            height: 70px;
-        }
-        .container {
-            max-width: 768px;
-        }
+
+    .header__inner {
+        height: 100%;
+        display: grid;
+        place-items: center;
     }
-    /* Small Desktop */
-    
-    @media only screen and (min-width: 64em) {
-        .container{
-            max-width: 1024px;
-        }
+
+    .header__logo {
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        color: white;
     }
-    /* Large Desktop */
-    
-    @media only screen and (min-width: 1300px) {
-        #players-section {
-            flex: 1;
-            margin-right: .5em;
-        }
-        #teams-section {
-            flex: 2;
-        }
-        .container {
-            max-width: 1300px;
-        }
-        .page {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        /* // */
-        .header__inner {}
-        .header__logo {
-            font-size: 1.75rem;
-        }
-        .main {}
-        .main__inner {
-            margin-top: .75em;
-            gap: 1em;
-        }
-        .main__step {}
-        .main__hr {}
-        .main__form {}
-        .main__input {}
-        .main__btns {}
-        #clear-btn {}
-        #delete-btn {}
-        .main__players-list {}
-        .player {}
-        .main__teams {}
-        .main__team-div {}
-        .main__team {}
-        .main__h4 {}
-        .main__i {}
-        .main__share {}
-        .main__randomize {}
-        .footer {}
-        .footer__p {}
-        .main__add-btn {}
+
+    .container {
+        padding: 10px 7.6px;
+        margin: auto;
+        position: relative;
+        width: 100%;
+        max-width: 425px;
     }
-    /* 
+
+    #add-section__checkbox {
+        transform: scale(1.5);
+    }
+
+    .add-section__checkbox-label {
+        margin-left: .5em;
+    }
+
+    .main__inner {
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+    }
+
+    .main__step {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5em;
+        width: 100%;
+    }
+
+    .main__hr {
+        border: none;
+        background-color: #ccc;
+        color: #ccc;
+        height: .13em;
+        align-self: normal;
+        border-radius: 5px;
+        margin: .25em 0 .75em 0;
+    }
+
+    .add-section__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .add-section__input {
+        padding: .25em;
+        width: 100%;
+    }
+
+    .add-section__btns {
+        list-style-type: none;
+        display: none;
+        justify-content: space-around;
+    }
+
+    .add-section__size-btns{
+        padding:.5rem 1rem;
+    }
+
+    .main__btns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1em;
+    }
+
+    #clear-btn {
+        width: 45%;
+    }
+
+    #delete-btn {
+        width: 45%;
+    }
+
+    .main__players-list {
+        list-style-type: none;
+    }
+
+    .main__teams {
+        display: flex;
+        gap: .5em;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .main__team-div {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .main__team {
+        flex: 1;
+        list-style-type: none;
+    }
+
+    .main__h4 {
+        text-align: center;
+        margin-bottom: .5em;
+    }
+
+    .main__i {
+        margin-right: 10px;
+    }
+
+    .main__share {
+        width: 45%;
+    }
+
+    .main__randomize {
+        width: 50%;
+    }
+
+    .footer {
+        height: 40px;
+        margin-top: auto;
+        display: grid;
+        place-content: center;
+    }
+
+    .footer__p {
+        font-size: 1rem;
+    }
+
+    .add-section__add-btn {
+        align-self: flex-end;
+        width: 50%;
+    }
+
+    #team-one {}
+}
+
+/* Phablet */
+
+@media only screen and (min-width: 36em) {
+    .main__inner {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 0;
+    }
+
+    #add-section {
+        flex: 1;
+        margin-bottom: .5em;
+    }
+
+    #players-section {
+        flex: 1;
+        margin: 0 0 .5em .5em;
+    }
+
+    #teams-section {
+        flex: auto;
+    }
+
+    .container {
+        max-width: 576px;
+    }
+}
+
+/* Tablet */
+
+@media only screen and (min-width: 48em) {
+    .header {
+        height: 80px;
+    }
+
+    .footer {
+        height: 70px;
+    }
+
+    .container {
+        max-width: 768px;
+    }
+}
+
+/* Small Desktop */
+
+@media only screen and (min-width: 64em) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+/* Large Desktop */
+
+@media only screen and (min-width: 1300px) {
+    #players-section {
+        flex: 1;
+        margin-right: .5em;
+    }
+
+    #teams-section {
+        flex: 2;
+    }
+
+    .container {
+        max-width: 1300px;
+    }
+
+    .page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* // */
+    .header__inner {}
+
+    .header__logo {
+        font-size: 1.75rem;
+    }
+
+    .main {}
+
+    .main__inner {
+        margin-top: .75em;
+        gap: 1em;
+    }
+
+    .main__step {}
+
+    .main__hr {}
+
+    .main__form {}
+
+    .main__input {}
+
+    .main__btns {}
+
+    #clear-btn {}
+
+    #delete-btn {}
+
+    .main__players-list {}
+
+    .player {}
+
+    .main__teams {}
+
+    .main__team-div {}
+
+    .main__team {}
+
+    .main__h4 {}
+
+    .main__i {}
+
+    .main__share {}
+
+    .main__randomize {}
+
+    .footer {}
+
+    .footer__p {}
+
+    .main__add-btn {}
+}
+
+/* 
  █████╗ ██████╗ ██████╗ ██╗████████╗██╗ ██████╗ ███╗   ██╗ █████╗ ██╗         ███████╗████████╗██╗   ██╗██╗     ███████╗███████╗
 ██╔══██╗██╔══██╗██╔══██╗██║╚══██╔══╝██║██╔═══██╗████╗  ██║██╔══██╗██║         ██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔════╝██╔════╝
 ███████║██║  ██║██║  ██║██║   ██║   ██║██║   ██║██╔██╗ ██║███████║██║         ███████╗   ██║    ╚████╔╝ ██║     █████╗  ███████╗
