@@ -11,19 +11,25 @@
 
 const addPlayerBtn = document.querySelector("#add-btn");
 const inputtedPlayerName = document.querySelector("#inputted-player-name");
-const playerForm = document.querySelector(".main__form");
-const playersList = document.querySelector("#players-list");
-const addErrorMsg = document.querySelector("#add-error-msg");
+const playerInputForm = document.querySelector(".add-section__form");
+const inputtedPlayersList = document.querySelector("#players-list");
+const addPlayerErrorMsg = document.querySelector("#add-error-msg");
 const teamsErrorMsg = document.querySelector("#teams-error-msg");
-const playersErrorMsg = document.querySelector("#players-error-msg");
+const playersListErrorMsg = document.querySelector("#players-error-msg");
 const deleteBtn = document.querySelector("#delete-btn");
 const clearBtn = document.querySelector("#clear-btn");
-const randoBtn = document.querySelector("#rando-btn");
+const randomBtn = document.querySelector("#rando-btn");
 const shareBtn = document.querySelector("#share-btn");
 const teamOneList = document.querySelector("#team-one");
 const teamTwoList = document.querySelector("#team-two");
 const sizeModeChkBox = document.querySelector("#add-section__checkbox");
 const sizeModeBtns = document.querySelector(".add-section__btns");
+const smallBtn = document.querySelector("#s-btn");
+const mediumBtn = document.querySelector("#m-btn");
+const largeBtn = document.querySelector("#l-btn");
+const extraLargeBtn = document.querySelector("#xl-btn");
+const sizeModeBtnsNodeList = document.querySelectorAll(".add-section__btns>li");
+
 let players = document.querySelectorAll("ul#players-list>li");
 let playersInTeams;
 
@@ -39,48 +45,57 @@ let draggablePlayer;
 ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝                                                                                                                                                           
 */
 
-const toggleActiveState = function() {
+
+
+
+
+const toggleActiveState = function () {
     this.classList.contains("active") ?
         this.classList.remove("active") : this.classList.add("active");
+
 };
 const updatePlayersList = () => players = document.querySelectorAll("ul#players-list>li");
-const addPlayer = function() {
+const addPlayer = function () {
     const inputtedPlayerNameValue = inputtedPlayerName.value;
+    const selectedPlayerSize = null;
+
+    console.log(sizeModeChkBox.checked);
 
     if (doesPlayerExist(inputtedPlayerNameValue)) {
-        createErrorMsg("Player added already!", 1500, addErrorMsg);
+        createErrorMsg("Player added already!", 1500, addPlayerErrorMsg);
     } else if (
         inputtedPlayerNameValue.value === 0 ||
         inputtedPlayerNameValue === ""
     ) {
-        tap(addErrorMsg);
-        createErrorMsg("The field is empty!", 1500, addErrorMsg);
+        tap(addPlayerErrorMsg);
+        createErrorMsg("The field is empty!", 1500, addPlayerErrorMsg);
     } else {
         let newPlayer = document.createElement("li");
         newPlayer.classList.add("player", "--ripple");
         newPlayer.addEventListener("click", toggleActiveState);
         newPlayer.textContent = inputtedPlayerNameValue;
-        playersList.appendChild(newPlayer);
-        playerForm.reset();
+        inputtedPlayersList.appendChild(newPlayer);
+        playerInputForm.reset();
         updatePlayersList();
         removeListLine();
     }
 };
-const displaySizeButtons = (e)=>{
+const toggleSizeButtons = (e) => {
     if (e.target.checked) {
         console.log("Checkbox is checked..");
         sizeModeBtns.style.display = "flex";
-        
-      } else {
+
+    } else {
         console.log("Checkbox is not checked..");
         sizeModeBtns.style.display = "none";
-      }
+    }
+
 };
 const doesPlayerExist = (newPlayer) => [...players].map((player) => player.innerText).includes(newPlayer);
-const createErrorMsg = function(msg, duration, ele) {
+const createErrorMsg = function (msg, duration, ele) {
     ele.innerHTML = msg;
     ele.style.display = "block";
-    setTimeout(function() {
+    setTimeout(function () {
         ele.style.display = "none";
     }, duration);
 };
@@ -90,9 +105,9 @@ const isListEmpty = (selector) =>
     document.querySelectorAll(selector).length === 0;
 const removeListLine = () =>
     isListEmpty("#players-list>li") ?
-    (playersList.style.display = "none") :
-    (playersList.style.display = "block");
-const randomize = function(players) {
+        (inputtedPlayersList.style.display = "none") :
+        (inputtedPlayersList.style.display = "block");
+const randomize = function (players) {
     let playersArray = [...players].map((node) => node.innerText);
     let currentIndex = playersArray.length,
         temporaryValue,
@@ -118,7 +133,7 @@ const randomlyFillTeam = (randomPlayers, team) =>
         team.appendChild(ele);
         playersInTeams = document.querySelectorAll(".player");
     });
-const assignTeams = function(players) {
+const assignTeams = function (players) {
     const halfLength = Math.ceil(players.length / 2);
     const teamOne = players.splice(0, halfLength);
     const teamTwo = players;
@@ -205,13 +220,21 @@ const selectAndCopy = () => {
         createErrorMsg("No teams to share...", 1500, teamsErrorMsg);
     }
     navigator.clipboard.writeText(text_to_copy).then(
-            function() {
-                console.log("yay!"); // success 
-            })
+        function () {
+            console.log("yay!"); // success 
+        })
         .catch(
-            function() {
+            function () {
                 console.log("err"); // error
             });
+};
+
+const toggleSizeModeBtnsState = () =>{
+    //TODO: if you toggle active state, remove active from all sizebtns .
+    smallBtn.addEventListener("click", toggleActiveState);
+    mediumBtn.addEventListener("click", toggleActiveState);
+    largeBtn.addEventListener("click", toggleActiveState);
+    extraLargeBtn.addEventListener("click", toggleActiveState);
 };
 /*
 ███████╗██╗   ██╗███████╗███╗   ██╗████████╗    ██╗     ██╗███████╗████████╗███████╗███╗   ██╗███████╗██████╗ ███████╗
@@ -223,28 +246,44 @@ const selectAndCopy = () => {
 */
 
 addPlayerBtn.addEventListener("click", addPlayer);
-sizeModeChkBox.addEventListener("change",displaySizeButtons);
-deleteBtn.addEventListener("click", function() {
+
+//TODO:function() does not work for this?Debug
+//TODO: add removeAllNonSizeModePlayers()
+sizeModeChkBox.addEventListener("change", e => {
+
+    let result = window.confirm("Changing modes will clear all players. Are you sure?");
+    if(result){
+        remove("li.player");
+        toggleSizeButtons(e);
+    }else{
+        sizeModeChkBox.checked = sizeModeChkBox.checked?false:true;
+    }
+});
+
+
+deleteBtn.addEventListener("click", function () {
     if (isListEmpty("#players-list>li")) {
-        createErrorMsg("There are no players to delete!", 1500, playersErrorMsg);
+        createErrorMsg("There are no players to delete!", 1500, playersListErrorMsg);
     } else {
         remove(".active");
         updatePlayersList();
     }
 
 });
-clearBtn.addEventListener("click", function() {
+clearBtn.addEventListener("click", function () {
     if (isListEmpty("#players-list>li")) {
-        createErrorMsg("There are no players to clear!", 1500, playersErrorMsg);
+        createErrorMsg("There are no players to clear!", 1500, playersListErrorMsg);
     } else {
         remove("li.player");
         updatePlayersList();
         removeListLine();
     }
 });
-randoBtn.addEventListener("click", randomizeAndAssign);
+randomBtn.addEventListener("click", randomizeAndAssign);
 
 shareBtn.addEventListener("click", selectAndCopy);
+
+toggleSizeModeBtnsState();
 
 
 // ██████╗ ███████╗██████╗ ██╗   ██╗ ██████╗  ██████╗ ██╗███╗   ██╗ ██████╗ 
@@ -255,7 +294,7 @@ shareBtn.addEventListener("click", selectAndCopy);
 // ╚═════╝ ╚══════╝╚═════╝  ╚═════╝  ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ 
 //     
 
-//FOR TESTING! Adds players on startup (The Joeys)
+//FIXME: Just for demonstrating Adds players on startup (The Joeys)
 players.forEach((player) => {
     player.addEventListener("click", toggleActiveState);
 });
@@ -264,3 +303,4 @@ function tap(x) {
     console.log(x);
     return x;
 }
+
