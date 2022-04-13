@@ -84,6 +84,18 @@ body {
     color: black;
     background-color: white;
     margin: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player__size{
+    font-size: 1rem;
+    font-weight: 600;
+    color: dimgray;
+}
+
+.player__name{
 }
 
 .btn {

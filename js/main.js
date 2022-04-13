@@ -11,7 +11,7 @@
 
 const addPlayerBtn = document.querySelector("#add-btn");
 const inputtedPlayerName = document.querySelector("#inputted-player-name");
-const playerInputForm = document.querySelector(".add-section__form");
+const playerInputField = document.querySelector(".add-section__input");
 const inputtedPlayersList = document.querySelector("#players-list");
 const addPlayerErrorMsg = document.querySelector("#add-error-msg");
 const teamsErrorMsg = document.querySelector("#teams-error-msg");
@@ -28,7 +28,7 @@ const smallBtn = document.querySelector("#s-btn");
 const mediumBtn = document.querySelector("#m-btn");
 const largeBtn = document.querySelector("#l-btn");
 const extraLargeBtn = document.querySelector("#xl-btn");
-const sizeModeBtnsNodeList = document.querySelectorAll(".add-section__btns>li");
+const sizeModeBtnsNodeList = document.querySelectorAll(".add-section__btns>button");
 
 let players = document.querySelectorAll("ul#players-list>li");
 let playersInTeams;
@@ -54,12 +54,20 @@ const toggleActiveState = function () {
         this.classList.remove("active") : this.classList.add("active");
 
 };
+
+const toggleSizeModeBtnsStates = function () {
+    if (this.classList.contains("active")) {
+        this.classList.remove("active")
+    } else {
+        [...sizeModeBtnsNodeList].forEach(btn => btn.classList.remove('active'));
+        this.classList.add("active")
+    }
+};
 const updatePlayersList = () => players = document.querySelectorAll("ul#players-list>li");
 const addPlayer = function () {
     const inputtedPlayerNameValue = inputtedPlayerName.value;
-    const selectedPlayerSize = null;
-
-    console.log(sizeModeChkBox.checked);
+    let selectedPlayerSize = null;
+    let hasSelectedSize = false;
 
     if (doesPlayerExist(inputtedPlayerNameValue)) {
         createErrorMsg("Player added already!", 1500, addPlayerErrorMsg);
@@ -69,13 +77,30 @@ const addPlayer = function () {
     ) {
         tap(addPlayerErrorMsg);
         createErrorMsg("The field is empty!", 1500, addPlayerErrorMsg);
+        //TODO: Check if size was picked
     } else {
         let newPlayer = document.createElement("li");
         newPlayer.classList.add("player", "--ripple");
         newPlayer.addEventListener("click", toggleActiveState);
-        newPlayer.textContent = inputtedPlayerNameValue;
+
+        let playerName = document.createElement("span");
+        playerName.classList.add("player__name");
+        playerName.innerText = inputtedPlayerNameValue;
+        newPlayer.append(playerName);
+        if (sizeModeChkBox.checked) {
+            ([...sizeModeBtnsNodeList].forEach(btn => {
+                if (btn.classList.contains('active')) {
+                    selectedPlayerSize = btn.innerText;
+                    hasSelectedSize = true;
+                }
+            }));
+            let playerSize = document.createElement("span");
+            playerSize.classList.add("player__size");
+            playerSize.innerText = selectedPlayerSize;
+            newPlayer.append(playerSize);
+        }
         inputtedPlayersList.appendChild(newPlayer);
-        playerInputForm.reset();
+        playerInputField.value = '';
         updatePlayersList();
         removeListLine();
     }
@@ -126,11 +151,11 @@ const randomize = function (players) {
 };
 const randomlyFillTeam = (randomPlayers, team) =>
     randomPlayers.forEach((playerName) => {
-        const ele = document.createElement("li");
-        ele.classList.add("player");
-        ele.setAttribute("draggable", true);
-        ele.textContent = playerName;
-        team.appendChild(ele);
+        const playerListEle = document.createElement("li");
+        playerListEle.classList.add("player");
+        playerListEle.setAttribute("draggable", true);
+        playerListEle.textContent = playerName;
+        team.appendChild(playerListEle);
         playersInTeams = document.querySelectorAll(".player");
     });
 const assignTeams = function (players) {
@@ -154,8 +179,40 @@ const assignTeams = function (players) {
     makeDraggable(playersInTeams);
     makeDroppable(teams);
 };
-const randomizeAndAssign = () => isListEmpty("#players-list>li") ? createErrorMsg("There are no players to randomize!", 1500, teamsErrorMsg) :
-    assignTeams(randomize(document.querySelectorAll("#players-list>li")));
+
+const sizeBasedRandomization = () => {
+    let randomPlayers = [];
+    let randomArr = [...randomize(document.querySelectorAll("#players-list>li"))];
+    let currIndex = 0;
+    let switcheroo = true;
+    tap(players.length);
+    while (currIndex < players.length) {
+        let playerIndex = 0;
+        currIndex++;
+        if (switcheroo) {
+            playerIndex = players.length % 2 === 0 ? randomArr.findIndex(player => player.size === 'XL' || player.size === 'L'||player.size === 'M') : randomArr.findIndex(player =>player.size === 'XL' || player.size === 'L');
+            switcheroo = false;
+        } else {
+            playerIndex = players.length % 2 === 0 ? randomArr.findIndex(player => player.size === 'M' || player.size === 'S') : randomArr.findIndex(player => player.size === 'L' || player.size === 'M');
+            switcheroo = true;
+        }
+        randomPlayers.push(randomArr.splice(playerIndex, 1));
+    }
+    console.log('this is fair!');
+    return randomPlayers;
+
+};
+
+const randomizeAndAssign = () => {
+    if (isListEmpty("#players-list>li")) {
+        createErrorMsg("There are no players to randomize!", 1500, teamsErrorMsg);
+    } else if (sizeModeChkBox.checked) {
+        assignTeams(sizeBasedRandomization());
+    } else {
+        assignTeams(randomize(document.querySelectorAll("#players-list>li")));
+    }
+};
+
 
 const makeDraggable = (players) => {
     players.forEach((player) => {
@@ -229,12 +286,11 @@ const selectAndCopy = () => {
             });
 };
 
-const toggleSizeModeBtnsState = () =>{
-    //TODO: if you toggle active state, remove active from all sizebtns .
-    smallBtn.addEventListener("click", toggleActiveState);
-    mediumBtn.addEventListener("click", toggleActiveState);
-    largeBtn.addEventListener("click", toggleActiveState);
-    extraLargeBtn.addEventListener("click", toggleActiveState);
+const toggleSizeModeBtnsState = () => {
+    smallBtn.addEventListener("click", toggleSizeModeBtnsStates);
+    mediumBtn.addEventListener("click", toggleSizeModeBtnsStates);
+    largeBtn.addEventListener("click", toggleSizeModeBtnsStates);
+    extraLargeBtn.addEventListener("click", toggleSizeModeBtnsStates);
 };
 /*
 ███████╗██╗   ██╗███████╗███╗   ██╗████████╗    ██╗     ██╗███████╗████████╗███████╗███╗   ██╗███████╗██████╗ ███████╗
@@ -248,15 +304,16 @@ const toggleSizeModeBtnsState = () =>{
 addPlayerBtn.addEventListener("click", addPlayer);
 
 //TODO:function() does not work for this?Debug
-//TODO: add removeAllNonSizeModePlayers()
 sizeModeChkBox.addEventListener("change", e => {
+    toggleSizeButtons(e);
+    if (!(isListEmpty("#players-list>li"))) {
+        let result = window.confirm("Changing modes will clear all players. Are you sure?");
 
-    let result = window.confirm("Changing modes will clear all players. Are you sure?");
-    if(result){
-        remove("li.player");
-        toggleSizeButtons(e);
-    }else{
-        sizeModeChkBox.checked = sizeModeChkBox.checked?false:true;
+        if (result) {
+            remove("li.player");
+        } else {
+            sizeModeChkBox.checked = sizeModeChkBox.checked ? false : true;
+        }
     }
 });
 

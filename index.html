@@ -28,16 +28,17 @@
                 <hr class="main__hr">
                 <form action="" class="add-section__form">
                     <div>
-                        <input type="checkbox" id="add-section__checkbox">
+                        <input type="checkbox" id="add-section__checkbox" >
                         <label class="add-section__checkbox-label" for="checkbox">Size Mode</label>
                     </div>
                     <input type="text" class="add-section__input" placeholder="Name" id="inputted-player-name">
-                    <ul class="add-section__btns">
-                        <li><button type="button" id="s-btn" class="add-section__size-btns btn --ripple">S</button></li>
-                        <li><button type="button" id="m-btn" class="add-section__size-btns btn --ripple active">M</button></li>
-                        <li><button type="button" id="l-btn" class="add-section__size-btns btn --ripple">L</button></li>
-                        <li><button type="button" id="xl-btn" class="add-section__size-btns btn --ripple">XL</button></li>
-                    </ul>
+                    <!-- TODO:Turn into div -->
+                    <div class="add-section__btns">
+                        <button type="button" id="s-btn" class="add-section__size-btns btn --ripple">S</button>
+                        <button type="button" id="m-btn" class="add-section__size-btns btn --ripple active">M</button>
+                        <button type="button" id="l-btn" class="add-section__size-btns btn --ripple">L</button>
+                        <button type="button" id="xl-btn" class="add-section__size-btns btn --ripple">XL</button>
+                    </div>
                     <button type="button" href="" class="btn add-section__add-btn --ripple" id="add-btn"><i
                             class="main__i fa-solid fa-user-plus"></i>Add</button>
                     <span id="add-error-msg" class="error-msg">asdas</span>
@@ -48,16 +49,6 @@
                 <h2 class="main__h2">Players</h2>
                 <hr class="main__hr">
                 <ul class="main__players-list" id="players-list">
-                    <li class="player --ripple">Joe</li>
-                    <li class="player --ripple">Jo</li>
-                    <li class="player --ripple">JoJo</li>
-                    <li class="player --ripple">Joey</li>
-                    <li class="player --ripple">Joao</li>
-                    <li class="player --ripple">Jones</li>
-                    <li class="player --ripple">Joel</li>
-                    <li class="player --ripple">Jonah</li>
-                    <li class="player --ripple">Joy</li>
-                    <li class="player --ripple">Jolie</li>
                 </ul>
                 <div class="main__btns">
                     <button id="clear-btn" type="button" href="#" class="btn --ripple"><i
