@@ -3,7 +3,7 @@ Tool that makes it easier to decide teams randomly. I play a lot of pick up bask
 
 **Link to project:** https://ndrwquach.github.io/teampick/
 
-![Screenshot of website](https://imgur.com/a/KasLomc)
+![Screenshot of website](https://i.imgur.com/nImbmLz.png)
 
 ## How It's Made:
 
