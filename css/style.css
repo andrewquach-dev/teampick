@@ -31,6 +31,7 @@
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@1&family=PT+Sans+Caption:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:wght@400;700&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -38,10 +39,10 @@ body {
 }
 
 :root {
-    --primary: #eaa121;
-    --dark: #000;
-    --medium: #1b1b1b;
-    --light: #2e2e2e;
+    --primary: #f9bf6a;
+    --dark: #141414;
+    --medium: #9c332d;
+    --light: #f3f1e9;
 }
 
 /* 
@@ -78,15 +79,14 @@ body {
 }
 
 .player {
-    text-align: center;
     padding: .5em .75em;
     cursor: pointer;
-    color: black;
-    background-color: white;
-    margin: 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    color: var(--dark);
+    background-color: #b3b0ab;
+    margin: .75em 0;
+    display: grid;
+    place-content: center;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .player__size{
@@ -95,17 +95,14 @@ body {
     color: dimgray;
 }
 
-.player__name{
-}
-
 .btn {
+    font-family: 'Work Sans', sans-serif;
     border: none;
-    padding: .75em .2em;
-    font-size: 1rem;
+    padding: .5rem 1.75rem;
+    font-size: 1.15rem;
     cursor: pointer;
-    background-color: #fff;
-    color: black;
-    box-shadow: 0 0 4px #999;
+    background-color: var(--medium);
+    color: var(--light);
     outline: none;
 }
 
@@ -153,14 +150,19 @@ a:visited {
 /* Mobile */
 
 @media only screen and (min-width: 0em) {
+    #add-section__checkbox,.add-section__checkbox-label{
+        display: none;
+    }
     .page {
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        background-color: var(--primary);
     }
 
     .header {
         height: 50px;
+        background-color: #f9bf6a;
     }
 
     .header__inner {
@@ -172,9 +174,10 @@ a:visited {
     .header__logo {
         cursor: pointer;
         font-size: 1.5rem;
-        font-weight: 700;
+        font-weight: 900;
         letter-spacing: 2.5px;
-        color: white;
+        color: #141414;
+        text-transform: uppercase;
     }
 
     .container {
@@ -204,27 +207,37 @@ a:visited {
         flex-direction: column;
         padding: 1.5em;
         width: 100%;
+        color: var(--dark);
+        background-color: var(--light);
     }
 
-    .main__hr {
+    .main__h2{
+        font-family: 'PT Sans Caption', sans-serif;
+        font-weight: bold;
+        color: #212429;
+    }
+
+    .card__line {
         border: none;
-        background-color: #ccc;
+        background-color: var(--medium);
         color: #ccc;
-        height: .13em;
+        height: .2em;
         align-self: normal;
         border-radius: 5px;
-        margin: .25em 0 .75em 0;
+        margin: 1rem 0;
     }
 
     .add-section__form {
         display: flex;
         flex-direction: column;
-        gap: 1em;
     }
 
     .add-section__input {
         padding: .25em;
         width: 100%;
+        color: var(--dark);
+        margin: 1rem 0;
+        border: none;
     }
 
     .add-section__btns {
@@ -237,19 +250,17 @@ a:visited {
         padding:.5rem 1rem;
     }
 
-    .main__btns {
+    .main__btns{
+        
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
         margin-top: 1em;
     }
 
-    #clear-btn {
-        width: 45%;
-    }
+    
 
-    #delete-btn {
-        width: 45%;
-    }
 
     .main__players-list {
         list-style-type: none;
@@ -277,34 +288,40 @@ a:visited {
     .main__h4 {
         text-align: center;
         margin-bottom: .5em;
+        width: fit-content;
+        align-self: center;
+        color: #212429;
     }
 
     .main__i {
         margin-right: 10px;
     }
 
-    .main__share {
-        width: 45%;
-    }
-
-    .main__randomize {
-        width: 50%;
-    }
 
     .footer {
         height: 40px;
         margin-top: auto;
         display: grid;
         place-content: center;
+        background-color: var(--primary);
     }
 
     .footer__p {
-        font-size: 1rem;
+        color: var(--dark);
+        font-size: 1.15rem;
+    }
+    .footer a{
+        font-weight: bold;
+        color: var(--dark);
+        text-decoration: none;
+    }
+    .footer a:hover{
+        color: var(--medium);
     }
 
     .add-section__add-btn {
         align-self: flex-end;
-        width: 50%;
+        margin-top: 1rem;
     }
 
     #team-one {}
@@ -333,6 +350,11 @@ a:visited {
 
     #teams-section {
         flex: auto;
+    }
+
+    .main__btns {
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .container {

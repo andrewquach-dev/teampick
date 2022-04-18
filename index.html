@@ -24,8 +24,8 @@
     <main class="main">
         <div class="main__inner container">
             <section id="add-section" class="main__step --dark">
-                <h2 class="main__h2">Add</h2>
-                <hr class="main__hr">
+                <h2 class="main__h2">Add Players</h2>
+                <div class="card__line"></div>
                 <form action="" class="add-section__form">
                     <div>
                         <input type="checkbox" id="add-section__checkbox" >
@@ -39,29 +39,26 @@
                         <button type="button" id="l-btn" class="add-section__size-btns btn --ripple">L</button>
                         <button type="button" id="xl-btn" class="add-section__size-btns btn --ripple">XL</button>
                     </div>
-                    <button type="button" href="" class="btn add-section__add-btn --ripple" id="add-btn"><i
-                            class="main__i fa-solid fa-user-plus"></i>Add</button>
+                    <button type="button" href="" class="btn add-section__add-btn --ripple" id="add-btn">Add</button>
                     <span id="add-error-msg" class="error-msg">asdas</span>
                 </form>
             </section>
 
             <section id="players-section" class="main__step --dark">
-                <h2 class="main__h2">Players</h2>
-                <hr class="main__hr">
+                <h2 class="main__h2">List of Players</h2>
+                <div class="card__line"></div>
                 <ul class="main__players-list" id="players-list">
                 </ul>
                 <div class="main__btns">
-                    <button id="clear-btn" type="button" href="#" class="btn --ripple"><i
-                            class="main__i fa-solid fa-trash-can"></i>Clear</button>
-                    <button id="delete-btn" type="button" href="#" class="btn --ripple"><i
-                            class="main__i fa-solid fa-user-xmark"></i>Delete</button>
+                    <button id="clear-btn" type="button" href="#" class="btn --ripple">Clear</button>
+                    <button id="delete-btn" type="button" href="#" class="btn --ripple">Delete</button>
                 </div><span id="players-error-msg" class="error-msg">asdas</span>
 
             </section>
 
             <section id="teams-section" class="main__step --dark">
                 <h2 class="main__h2">Teams</h2>
-                <hr class="main__hr">
+                <div class="card__line"></div>
                 <div class="main__teams">
                     <div class="main__team-div">
                         <h4 class="main__h4" contenteditable="true">Team 1:</h4>
@@ -77,10 +74,8 @@
                 </div>
                 <div class="main__btns">
 
-                    <button type="button" href="#" class="main__share btn --ripple" id="share-btn"><i
-                            class="main__i fa-solid fa-share-nodes"></i>Share</button>
-                    <button type="button" href="#" class="main__randomize btn --ripple" id="rando-btn"><i
-                            class="main__i fa-solid fa-dice-six"></i>Randomize</button>
+                    <button type="button" href="#" class="main__share btn --ripple" id="share-btn">Share</button>
+                    <button type="button" href="#" class="main__randomize btn --ripple" id="rando-btn">Randomize</button>
                 </div>
                 <span id="teams-error-msg" class="error-msg">asdas</span>
             </section>

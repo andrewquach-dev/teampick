@@ -190,7 +190,7 @@ const sizeBasedRandomization = () => {
         let playerIndex = 0;
         currIndex++;
         if (switcheroo) {
-            playerIndex = players.length % 2 === 0 ? randomArr.findIndex(player => player.size === 'XL' || player.size === 'L'||player.size === 'M') : randomArr.findIndex(player =>player.size === 'XL' || player.size === 'L');
+            playerIndex = players.length % 2 === 0 ? randomArr.findIndex(player => player.size === 'XL' || player.size === 'L') : randomArr.findIndex(player => player.size === 'XL' || player.size === 'L');
             switcheroo = false;
         } else {
             playerIndex = players.length % 2 === 0 ? randomArr.findIndex(player => player.size === 'M' || player.size === 'S') : randomArr.findIndex(player => player.size === 'L' || player.size === 'M');
@@ -331,9 +331,12 @@ clearBtn.addEventListener("click", function () {
     if (isListEmpty("#players-list>li")) {
         createErrorMsg("There are no players to clear!", 1500, playersListErrorMsg);
     } else {
-        remove("li.player");
-        updatePlayersList();
-        removeListLine();
+        let result = window.confirm("Are you sure you want to clear all players?");
+        if (result) {
+            remove("li.player");
+            updatePlayersList();
+            removeListLine();
+        }
     }
 });
 randomBtn.addEventListener("click", randomizeAndAssign);
