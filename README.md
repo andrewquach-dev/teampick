@@ -1,9 +1,9 @@
 # teampick
-Tool that makes it easier to decide teams randomly.
+Tool that makes it easier to decide teams randomly. I play a lot of pick up basketball and it can sometimes get a little old having all the shooters on one team when we "shoot for teams" or be the last person picked 😔. Hopefully this tool can be of use to other pickup basketball players or even for anyone who just needs 2 randomized teams.
 
 **Link to project:** https://ndrwquach.github.io/teampick/
 
-![Screenshot of website](https://i.imgur.com/kU6N3ZF.png)
+![Screenshot of website](https://imgur.com/a/KasLomc)
 
 ## How It's Made:
 
