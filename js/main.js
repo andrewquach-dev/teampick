@@ -16,6 +16,7 @@ const inputtedPlayersList = document.querySelector("#players-list");
 const addPlayerErrorMsg = document.querySelector("#add-error-msg");
 const teamsErrorMsg = document.querySelector("#teams-error-msg");
 const playersListErrorMsg = document.querySelector("#players-error-msg");
+const teamsNormalMsg = document.querySelector('#teams-normal-msg');
 const deleteBtn = document.querySelector("#delete-btn");
 const clearBtn = document.querySelector("#clear-btn");
 const randomBtn = document.querySelector("#rando-btn");
@@ -275,15 +276,18 @@ const selectAndCopy = () => {
 
     if (isListEmpty("#team-one>li") || isListEmpty("#team-two>li")) {
         createErrorMsg("No teams to share...", 1500, teamsErrorMsg);
-    }
-    navigator.clipboard.writeText(text_to_copy).then(
-        function () {
-            console.log("yay!"); // success 
-        })
-        .catch(
+    }else{
+        createErrorMsg("Teams pasted to clipboard.", 1500, teamsNormalMsg);
+        navigator.clipboard.writeText(text_to_copy).then(
             function () {
-                console.log("err"); // error
-            });
+                console.log("yay!"); // success 
+            })
+            .catch(
+                function () {
+                    console.log("err"); // error
+                });
+    }
+   
 };
 
 const toggleSizeModeBtnsState = () => {

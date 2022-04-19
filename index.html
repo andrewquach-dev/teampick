@@ -28,18 +28,18 @@
                 <div class="card__line"></div>
                 <form action="" class="add-section__form">
                     <div>
-                        <input type="checkbox" id="add-section__checkbox" >
+                        <input type="checkbox" id="add-section__checkbox">
                         <label class="add-section__checkbox-label" for="checkbox">Size Mode</label>
                     </div>
                     <input type="text" class="add-section__input" placeholder="Name" id="inputted-player-name">
-                    <!-- TODO:Turn into div -->
+
                     <div class="add-section__btns">
                         <button type="button" id="s-btn" class="add-section__size-btns btn --ripple">S</button>
                         <button type="button" id="m-btn" class="add-section__size-btns btn --ripple active">M</button>
                         <button type="button" id="l-btn" class="add-section__size-btns btn --ripple">L</button>
                         <button type="button" id="xl-btn" class="add-section__size-btns btn --ripple">XL</button>
                     </div>
-                    <button type="button" href="" class="btn add-section__add-btn --ripple" id="add-btn">Add</button>
+                    <button type="button" href="" class="btn add-section__add-btn" id="add-btn">Add</button>
                     <span id="add-error-msg" class="error-msg">asdas</span>
                 </form>
             </section>
@@ -50,8 +50,8 @@
                 <ul class="main__players-list" id="players-list">
                 </ul>
                 <div class="main__btns">
-                    <button id="clear-btn" type="button" href="#" class="btn --ripple">Clear</button>
-                    <button id="delete-btn" type="button" href="#" class="btn --ripple">Delete</button>
+                    <button id="clear-btn" type="button" href="#" class="btn">Clear</button>
+                    <button id="delete-btn" type="button" href="#" class="btn">Delete</button>
                 </div><span id="players-error-msg" class="error-msg">asdas</span>
 
             </section>
@@ -74,10 +74,12 @@
                 </div>
                 <div class="main__btns">
 
-                    <button type="button" href="#" class="main__share btn --ripple" id="share-btn">Share</button>
-                    <button type="button" href="#" class="main__randomize btn --ripple" id="rando-btn">Randomize</button>
+                    <button type="button" href="#" class="main__share btn" id="share-btn">Share</button>
+                    <button type="button" href="#" class="main__randomize btn"
+                        id="rando-btn">Randomize</button>
                 </div>
                 <span id="teams-error-msg" class="error-msg">asdas</span>
+                <span id="teams-normal-msg" class="normal-msg">asdas</span>
             </section>
         </div>
     </main>

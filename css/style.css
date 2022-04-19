@@ -64,8 +64,20 @@ body {
     background-color: #f2dede;
     border-color: #ebccd1;
     display: none;
-    border-radius: 1em;
-    padding: .25em 1em;
+    border-radius: 3px;
+    padding: .5em .75em;
+    font-size: 1rem;
+    align-self: flex-start;
+    margin-top: 1rem;
+}
+
+.normal-msg {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    display: none;
+    border-radius: 3px;
+    padding: .5em .75em;
     font-size: 1rem;
     align-self: flex-start;
     margin-top: 1rem;
@@ -89,9 +101,10 @@ body {
     place-content: center;
     font-family: 'Work Sans', sans-serif;
     border-radius: 3px;
+    
 }
 
-.player__size{
+.player__size {
     font-size: 1rem;
     font-weight: 600;
     color: dimgray;
@@ -104,13 +117,21 @@ body {
     font-size: 1.15rem;
     cursor: pointer;
     background-color: #ff8906;
-    color: #fffffe;
+    color: #0f0e17;
     outline: none;
     border-radius: 3px;
-    font-weight: 700;
+    font-weight: 700;background-position: center;
+    transition: background 0.8s;
 }
 
-
+.btn:hover {
+    background: #f25f4c radial-gradient(circle, transparent 1%, #f25f4c 1%) center/15000%;
+}
+.btn:active {
+    background-color: #ff8906;
+    background-size: 100%;
+    transition: background 0s;
+}
 
 .--over {
     border: 3px dotted #666;
@@ -124,9 +145,8 @@ body {
 .--ripple:hover {
     background: darkgrey radial-gradient(circle, transparent 1%, darkgrey 1%) center/15000%;
 }
-.btn:hover{
-    background-color: #f25f4c;
-}
+
+
 
 .--ripple:active {
     background-color: #a7a9be;
@@ -159,9 +179,12 @@ a:visited {
 /* Mobile */
 
 @media only screen and (min-width: 0em) {
-    #add-section__checkbox,.add-section__checkbox-label{
+
+    #add-section__checkbox,
+    .add-section__checkbox-label {
         display: none;
     }
+
     .page {
         min-height: 100vh;
         display: flex;
@@ -216,11 +239,18 @@ a:visited {
         flex-direction: column;
         padding: 1.5em;
         width: 100%;
-        background-color:#0f0e17;
+        background-color: #0f0e17;
         border-radius: 3px;
+        box-shadow:
+      0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075),
+      0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075),
+      0 16px 16px hsl(0deg 0% 0% / 0.075)
+    ;
     }
 
-    .main__h2{
+    .main__h2 {
         font-family: 'PT Sans Caption', sans-serif;
         font-weight: bold;
         color: #fffffe;
@@ -256,20 +286,18 @@ a:visited {
         justify-content: space-around;
     }
 
-    .add-section__size-btns{
-        padding:.5rem 1rem;
+    .add-section__size-btns {
+        padding: .5rem 1rem;
     }
 
-    .main__btns{
-        
+    .main__btns {
+
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
+        justify-content: space-between;
         margin-top: 1em;
     }
 
-    
+
 
 
     .main__players-list {
@@ -320,13 +348,15 @@ a:visited {
         color: #a7a9be;
         font-size: 1.15rem;
     }
-    .footer a{
+
+    .footer a {
         font-weight: bold;
         color: #fffffe;
         text-decoration: none;
     }
-    .footer a:hover{
-        color: #ff8906;
+
+    .footer a:hover {
+        color: #f25f4c;
     }
 
     .add-section__add-btn {
@@ -362,10 +392,6 @@ a:visited {
         flex: auto;
     }
 
-    .main__btns {
-        flex-direction: row;
-        justify-content: space-between;
-    }
 
     .container {
         max-width: 576px;
