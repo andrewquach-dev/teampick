@@ -101,7 +101,7 @@ body {
     place-content: center;
     font-family: 'Work Sans', sans-serif;
     border-radius: 3px;
-    
+
 }
 
 .player__size {
@@ -117,16 +117,18 @@ body {
     font-size: 1.15rem;
     cursor: pointer;
     background-color: #ff8906;
-    color: #0f0e17;
+    color: #fffffe;
     outline: none;
     border-radius: 3px;
-    font-weight: 700;background-position: center;
+    font-weight: 700;
+    background-position: center;
     transition: background 0.8s;
 }
 
 .btn:hover {
     background: #f25f4c radial-gradient(circle, transparent 1%, #f25f4c 1%) center/15000%;
 }
+
 .btn:active {
     background-color: #ff8906;
     background-size: 100%;
@@ -194,13 +196,17 @@ a:visited {
 
     .header {
         height: 50px;
-        background-color: #0f0e17;
+        background-color: #0f0e17; box-shadow: 0px 0.8px 0.9px hsl(60deg 25% 63% / 0.36),
+        0px 2.7px 3px -0.8px hsl(60deg 25% 63% / 0.36),
+        0px 6.8px 7.7px -1.7px hsl(60deg 25% 63% / 0.36),
+        0px 16.5px 18.6px -2.5px hsl(60deg 25% 63% / 0.36);
     }
 
     .header__inner {
         height: 100%;
         display: grid;
         place-items: center;
+       
     }
 
     .header__logo {
@@ -242,12 +248,11 @@ a:visited {
         background-color: #0f0e17;
         border-radius: 3px;
         box-shadow:
-      0 1px 1px hsl(0deg 0% 0% / 0.075),
-      0 2px 2px hsl(0deg 0% 0% / 0.075),
-      0 4px 4px hsl(0deg 0% 0% / 0.075),
-      0 8px 8px hsl(0deg 0% 0% / 0.075),
-      0 16px 16px hsl(0deg 0% 0% / 0.075)
-    ;
+            0 1px 1px hsl(0deg 0% 0% / 0.075),
+            0 2px 2px hsl(0deg 0% 0% / 0.075),
+            0 4px 4px hsl(0deg 0% 0% / 0.075),
+            0 8px 8px hsl(0deg 0% 0% / 0.075),
+            0 16px 16px hsl(0deg 0% 0% / 0.075);
     }
 
     .main__h2 {
@@ -342,6 +347,9 @@ a:visited {
         display: grid;
         place-content: center;
         background-color: #0f0e17;
+        box-shadow: 0px -0.8px 0.9px hsl(60deg 25% 63% / 0.34),
+        0px -1.4px 1.6px -1.2px hsl(60deg 25% 63% / 0.34),
+        0px -3.3px 3.7px -2.5px hsl(60deg 25% 63% / 0.34);;
     }
 
     .footer__p {
