@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "@formkit/auto-animate": "^1.0.0-beta.1"
+  },
+  "name": "teampick",
+  "description": "Tool that makes it easier to decide teams randomly. I play a lot of pick up basketball and it can sometimes get a little old having all the shooters on one team when we \"shoot for teams\" or be the last person picked 😔. Hopefully this tool can be of use to other pickup basketball players or even for anyone who just needs 2 randomized teams.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arquach/teampick.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arquach/teampick/issues"
+  },
+  "homepage": "https://github.com/arquach/teampick#readme"
+}

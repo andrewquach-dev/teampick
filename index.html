@@ -75,8 +75,7 @@
                 <div class="main__btns">
 
                     <button type="button" href="#" class="main__share btn" id="share-btn">Share</button>
-                    <button type="button" href="#" class="main__randomize btn"
-                        id="rando-btn">Randomize</button>
+                    <button type="button" href="#" class="main__randomize btn" id="rando-btn">Randomize</button>
                 </div>
                 <span id="teams-error-msg" class="error-msg">asdas</span>
                 <span id="teams-normal-msg" class="normal-msg">asdas</span>
@@ -88,6 +87,12 @@
         <p class="footer__p">Hand Coded By <a href="https://github.com/ndrwquach">Andrew Quach</a></p>
     </footer>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="module">
+        import autoAnimate from '/node_modules/@formkit/auto-animate/index.min.js'
+        autoAnimate(document.getElementById('players-list'))
+        autoAnimate(document.getElementById('team-one'))
+        autoAnimate(document.getElementById('team-two'))
+    </script>
 </body>
 
 </html>
